@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+
+.header-container {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 20px;
+  background: #f9f9f9;
+}
+
+.logo {
+  height: 60px;
+}
+
+.nav-links {
+  list-style-type: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 8px 16px;
+  color: #222;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.nav-links a:hover {
+  background: #f4f4f4;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.footer {
+  background-color: #f9f9f9;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+    </style> 
+
+</head>
+<header>
+  <div class="header-container">
+    <img src="images/logo.png" alt="Fantasy Rugby League Logo" class="logo">
+    <h1>Fantasy Rugby League</h1>
+  </div>
+</header>
+<br>
+
+<body>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
+      <li><a href="03_fixturestable.html">URC Fixtures</a></li>
+      <li><a href="04_news.html">News</a></li>
+      <li><a href="05_video.html">Video Highlights</a></li>
+    </ul>
+  </nav>
+  <br>
+  
+  <main>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/1Qh3y6rjB2w"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <a href="03_fixturestable.html">URC League Fixtures</a> |
+      <a href="#">Clubs</a> |
+      <a href="#">Fantasy Rugby Rules</a> |
+      <a href="#">Statistics</a> |
+      <a href="#">Terms of Use</a> |
+      <a href="#">Cookie Policy</a> |
+      <a href="#">Policies</a> |
+      <a href="#">Contact Us</a>
+    </p>
+    <p>&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
