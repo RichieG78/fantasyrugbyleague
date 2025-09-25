@@ -1,0 +1,274 @@
+body {
+      font-family: Arial, sans-serif;
+      background-color: #003366;
+      /* URC dark blue */
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-rows: auto auto auto auto auto;
+      gap: 5px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 10px 10px;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #003366;
+      color: #fff;
+      height: 60px;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    .URC_logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .header-container h1 {
+      margin: 0;
+      font-size: 18px;
+      flex: 1;
+      /* centers title between logo and button */
+      text-align: center;
+    }
+
+    .login {
+      margin-left: auto;
+      background: #fff;
+      color: #003366;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    nav {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      margin: 0;
+      background: #003366;
+      border-radius: 5px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      display: inline-flex;
+      /* was inline-block */
+      align-items: center;
+      /* vertical centering */
+      justify-content: center;
+      /* horizontal centering */
+      padding: 6px 10px;
+      border-radius: 4px;
+      text-align: center;
+      /* centers multi-line text */
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    main {
+      grid-column: 1 / -1;
+      grid-row: 4;
+      flex: 1;
+      width: 100%;
+      background: #003366;
+      border-radius: 8px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* --- League table style parity (match fantasyleaguetables.css) --- */
+
+    /* Reset old fixture table overrides */
+    .fixture-table-today,
+    .fixture-table-tomorrow {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      border: 1px solid #cccccc;
+    }
+
+    .fixture-table-today thead th,
+    .fixture-table-tomorrow thead th {
+      background: #f4f4f4;
+      color: #222;
+      font-weight: 600;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .fixture-table-today td,
+    .fixture-table-tomorrow td {
+      border: 1px solid #ccc;
+      padding: 10px 12px;
+      text-align: center;
+      background: #fff;
+      color: #222;
+    }
+
+    .fixture-table-today tr:nth-child(even) td,
+    .fixture-table-tomorrow tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .fixture-table-today tr:hover td,
+    .fixture-table-tomorrow tr:hover td {
+      background: #eef6ff;
+    }
+
+    .vs-cell {
+      font-weight: 600;
+      color: #003366;
+    }
+
+    /* Team cells reuse existing flex layout */
+    .team-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      justify-content: flex-start;
+      min-width: 0;
+    }
+
+    .team-cell.left {
+      flex-direction: row;              /* logo then name */
+      text-align: left;
+    }
+
+    .team-cell.right {
+      flex-direction: row;              /* name then logo (HTML order handles) */
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .team-cell img.team-logo {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .team-cell .team-name {
+      white-space: nowrap;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #222;
+      line-height: 1.1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* Remove prior specific background colors & borders for old styling */
+    .fixture-table-today tr,
+    .fixture-table-tomorrow tr,
+    .fixture-table-today td,
+    .fixture-table-tomorrow td {
+      background-image: none;
+    }
+
+    footer {
+      grid-column: 1 / -1;
+      grid-row: 5;
+      /* body defines 5 rows */
+      width: 100%;
+      background: #003366;
+      color: #fff;
+      padding: 20px 16px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+
+    .footer-table td {
+      padding: 8px;
+      color: #fff;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Fixed column layout for both fixture tables */
+    .fixture-table-today,
+    .fixture-table-tomorrow {
+      table-layout: fixed;            /* prevent column width shift */
+      width: 100%;
+    }
+
+    .fixture-table-today colgroup col:nth-child(1),
+    .fixture-table-tomorrow colgroup col:nth-child(1),
+    .fixture-table-today colgroup col:nth-child(3),
+    .fixture-table-tomorrow colgroup col:nth-child(3) {
+      width: 47%;              /* widened team columns */
+    }
+
+    .fixture-table-today colgroup col:nth-child(2),
+    .fixture-table-tomorrow colgroup col:nth-child(2) {
+      width: 6%;               /* narrower middle (vs) column */
+    }
+
+    /* Ensure cell contents don’t overflow */
+    .fixture-table-today th,
+    .fixture-table-tomorrow th,
+    .fixture-table-today td,
+    .fixture-table-tomorrow td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }

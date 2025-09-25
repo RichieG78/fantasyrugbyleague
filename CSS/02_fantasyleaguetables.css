@@ -115,7 +115,7 @@ footer {
     } 
 
     .league-table th, .league-table td {
-      border: 1px solid #ffffff;
+      border: none;
       padding: 12px;
       text-align: center;
     }
@@ -123,9 +123,14 @@ footer {
     .league-table th {
       background: #003366;
       color: #fff;
+      border: 1px solid #ffffff;
     }
     .league-table tr:nth-child(odd) {
       background: #35CDE6;
+    }
+
+    .league-table td {
+      border: 1px solid #ffffff;
     }
 
     .league-table tr:hover {
