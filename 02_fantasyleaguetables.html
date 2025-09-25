@@ -1,105 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=}, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-
-.header-container {
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 10px 20px;
-  background: #f9f9f9;
-}
-
-.logo {
-  height: 60px;
-}
-
-.nav-links {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-}
-
-.nav-links a {
-  text-decoration: none;
-  border: 1px solid black;
-  padding: 8px 16px;
-  color: #222;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.nav-links a:hover {
-  background: #f4f4f4;
-}
-
-.league-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 30px 0;
-}
-
-.league-table th,
-.league-table td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-
-.league-table thead tr {
-  background-color: #f4f4f4;
-}
-
-.footer {
-  background-color: #f9f9f9;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-}
-
-.footer a {
-  color: #000000;
-  text-decoration: none;
-  margin: 0 10px;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy League Tables</title>
+  <link rel="stylesheet" href="CSS/02_fantasyleaguetables.css"> 
 </head>
+
 <body>
 <header>
   <div class="header-container">
-    <img src="images/logo.png" alt="Fantasy Rugby League Logo" class="logo">
+    <img src="Assets/00.urc-logo.png" alt="URC Logo" class="URC_logo">
     <h1>Fantasy Rugby League</h1>
+    <button class="login">Login</button>
   </div>
 </header>
-<br>
 
-<nav>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
-    <li><a href="03_fixturestable.html">URC Fixtures</a></li>
-    <li><a href="04_news.html">News</a></li>
-    <li><a href="05_video.html">Video Highlights</a></li>
-  </ul>
-</nav>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
+      <li><a href="03_fixturestable.html">URC Fixtures</a></li>
+      <li><a href="04_news.html">News</a></li>
+      <li><a href="05_video.html">Video Highlights</a></li>
+    </ul>
+  </nav>
 
 <main>
   <table class="league-table">
@@ -167,13 +92,13 @@
 
 <footer class="footer">
   <p>
-    <a href="03_fixturestable.html">URC League Fixtures</a> |
-    <a href="#">Clubs</a> |
-    <a href="#">Fantasy Rugby Rules</a> |
-    <a href="#">Statistics</a> |
-    <a href="#">Terms of Use</a> |
-    <a href="#">Cookie Policy</a> |
-    <a href="#">Policies</a> |
+    <a href="03_fixturestable.html">URC League Fixtures</a>
+    <a href="#">Clubs</a>
+    <a href="#">Fantasy Rugby Rules</a>
+    <a href="#">Statistics</a>
+    <a href="#">Terms of Use</a>
+    <a href="#">Cookie Policy</a>
+    <a href="#">Policies</a>
     <a href="#">Contact Us</a>
   </p>
   <p>&copy; 2024 Fantasy Rugby League. All rights reserved.</p>

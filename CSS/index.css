@@ -1,62 +1,355 @@
-/* Base CSS Template */
+/* Page grid: 3 columns x 6 rows */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #003366;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto auto auto auto auto;
+      gap: 20px;
+      min-height: 100vh;
+      padding: 0 20px 20px;
+      box-sizing: border-box;
+    }
 
-.header-container {
-  border: 2px solid #333;
-  padding: 1em;
-  display: inline-block; /* Optional: shrink to fit content */
+    header {
+      grid-column: 1 / -1;
+      /* row 1 */
+      grid-row: 1;
+      width: 100%;
+    }
+
+     /* Header content */
+    .header-container {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #003366;
+      color: #fff;
+      height: 60px;
+      padding: 0 16px;
+      box-sizing: border-box;
+    }
+
+    .URC_logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .login {
+      margin-left: auto;
+      background: #fff;
+      color: #003366;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    nav {
+      grid-column: 1 / -1;
+      /* row 2 */
+      grid-row: 2;
+      width: 100%;
+    }
+
+    .banner {
+      grid-column: 1 / -1;
+      /* row 3 spans all 3 columns */
+      grid-row: 3;
+      position: relative;
+      width: 100%;
+    }
+
+    .banner_hero_image {
+      width: 100%;
+      height: auto;
+      display: block;
+      z-index: 0;
+      border-radius: 8px;
+    }
+
+    /* Optional: centered register button overlay */
+    .register_button {
+      position: absolute;
+      z-index: 1;
+      bottom: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 24px;
+      border-radius: 5px;
+      border: none;
+      background: #000;
+      color: #fff;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .container-row {
+      grid-column: 1 / -1;
+      /* row 4 */
+      grid-row: 4;
+      display: contents;
+      /* let children (boxes) occupy body grid columns */
+    }
+
+    .container-row> .container-box:nth-child(1) {
+      grid-column: 1;
+    }
+
+    .container-row> .container-box:nth-child(2) {
+      grid-column: 2;
+    }
+
+    .container-row> .container-box:nth-child(3) {
+      grid-column: 3;
+    }
+
+   /* Container boxes: make image fill the box and overlay caption at bottom */
+.container-box {
+  grid-row: 4;
+  height: 100px;              /* keep row height */
+  position: relative;         /* enable absolute positioning for children */
+  border-radius: 8px;
+  overflow: hidden;           /* clip image and caption to rounded corners */
+  background: #000;           /* fallback while image loads */
+  /* removed flex/padding so image can cover fully */
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* Image fills entire box */
+.container-box img,
+.create_and_join_league,
+.pick_your_squad,
+.compete_against_friends {
+  position: absolute;
+  inset: 0;                   /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* cover the whole container */
+  object-position: center;
+  display: block;
+  margin: 0;
+  z-index: 0;                 /* behind the caption */
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #222;
+/* Text overlays at the bottom with semi‑transparent white background
+   that follows the container’s rounded bottom corners */
+.container-box p {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 6px 8px;
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #111;
+  background: rgba(255, 255, 255, 0.8);  /* semi‑transparent white */
+  z-index: 1;                             /* above image */
+  border-bottom-left-radius: 8px;         /* match container corners */
+  border-bottom-right-radius: 8px;
+  /* optional subtle polish: */
+  /* backdrop-filter: saturate(120%) blur(1px); */
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #333;
+    .latest-news-container {
+      grid-column: 1 / -1;
+      /* span all 3 columns */
+      grid-row: 5;
+      background: #35cee6;
+      border-radius: 10px;
+      padding: 15px;
+      color: #000;
+      width: 100%;
+      display: flex;
+      /* stack heading + row */
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+
+    /* Make the news boxes horizontal */
+    .news-boxes-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .latest-news-box {
+      flex: 1 1 0;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .latest-news-box p {
+      margin: 8px 0 0;
+      text-align: center;
+    }
+
+    /* Nav */
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 0;
+      margin: 0;
+      background: #003366;
+      border-radius: 5px;
+    }
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;     /* was inline-block */
+  align-items: center;      /* vertical centering */
+  justify-content: center;  /* horizontal centering */
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-align: center;       /* centers multi-line text */
 }
 
-p {
-    margin-bottom: 1rem;
-}
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
 
-a {
-    color: #0077cc;
-    text-decoration: none;
-}
+        footer {
+      grid-column: 1 / -1;
+      /* row 6 */
+      grid-row: 6;
+      width: 100%;
+      background: #003366;
+      color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+    }
 
-a:hover {
-    text-decoration: underline;
-}
+    .footer-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
 
-ul, ol {
-    margin-bottom: 1rem;
-    padding-left: 2rem;
-}
+    .footer-table td {
+      padding: 8px;
+      color:#fff;
+      text-align: center;
+    }
 
-button, input, select, textarea {
-    font-family: inherit;
-    font-size: 1rem;
-}
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    } 
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-}
+    footer a:hover {
+      text-decoration: underline;
+    }
 
-img {
-    max-width: 100%;
-    height: auto;
+/* Mobile: iPhone SE (375px width) */
+@media (max-width: 374px) {
+  /* Collapse layout to single column */
+  body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 12px 12px;
+  }
+
+  header,
+  nav,
+  .banner,
+  .latest-news-container,
+  footer {
+    grid-column: 1 / -1;
+  }
+
+  /* Row 4: stack boxes vertically in order */
+  .container-row {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .container-row > .container-box {
+    grid-column: auto;
+    grid-row: auto;
+    height: 150px;
+  }
+
+  /* Ensure order: 1) join a league today, 2) pick your dream team, 3) compete against friends */
+  .container-row > .container-box:nth-child(1) { order: 1; }
+  .container-row > .container-box:nth-child(2) { order: 2; }
+  .container-row > .container-box:nth-child(3) { order: 3; }
+
+  /* Latest News: turn into a swipeable carousel */
+  .news-boxes-row {
+    overflow-x: auto;
+    display: flex;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+
+  .latest-news-box {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+  }
+
+  /* Footer table: stack links vertically */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
     display: block;
+    width: 100%;
+  }
+
+  .footer-table td {
+    padding: 10px 0;
+    border: 0;
+  }
+}
+
+/* Tablet */
+@media (min-width: 375px) and (max-width: 1024px) {
+  /* Keep 3-column grid; enhance Latest News to scroll 2 cards at a time */
+  .container-box p .line-break {
+    display: block;
+  }
+  
+  .news-boxes-row {
+    overflow-x: auto;
+    display: flex;
+    gap: 16px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .latest-news-box {
+    flex: 0 0 48%;
+    scroll-snap-align: start;
+  }
+
+  /* Footer table stays 4x2; no stacking */
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  /* Restore non-scrolling Latest News row */
+
+  .container-box p .line-break {
+    display: block;
+  }
+  .news-boxes-row {
+    overflow-x: visible;
+  }
+
+  .latest-news-box {
+    flex: 1 1 0;
+  }
 }
