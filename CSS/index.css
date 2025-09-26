@@ -249,7 +249,7 @@
     }
 
 /* Mobile: iPhone SE (375px width) */
-@media (max-width: 374px) {
+@media (max-width: 375px) {
   /* Collapse layout to single column */
   body {
     grid-template-columns: 1fr;

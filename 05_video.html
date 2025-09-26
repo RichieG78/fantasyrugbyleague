@@ -5,87 +5,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="styles.css">
-    <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #fff;
-}
-
-.header-container {
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 10px 20px;
-  background: #f9f9f9;
-}
-
-.logo {
-  height: 60px;
-}
-
-.nav-links {
-  list-style-type: none;
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-links a {
-  text-decoration: none;
-  border: 1px solid black;
-  padding: 8px 16px;
-  color: #222;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.nav-links a:hover {
-  background: #f4f4f4;
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 400px;
-}
-
-.footer {
-  background-color: #f9f9f9;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-}
-
-.footer a {
-  color: #000000;
-  text-decoration: none;
-  margin: 0 10px;
-}
-.footer a:hover {
-  text-decoration: underline;
-}
-    </style> 
-
+  <link rel="stylesheet" href="CSS/05_video.css">
 </head>
-<header>
-  <div class="header-container">
-    <img src="images/logo.png" alt="Fantasy Rugby League Logo" class="logo">
-    <h1>Fantasy Rugby League</h1>
-  </div>
-</header>
-<br>
 
 <body>
+  <header>
+        <div class="header-container">
+      <img src="Assets/00.urc-logo.png" alt="Fantasy Rugby League Logo" class="URC_logo">
+      <h1 style="font-size:18px; margin:0;">Fantasy Rugby League</h1>
+      <button class="login">Login</button>
+    </div>
+  </header>
+
   <nav>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -95,7 +26,7 @@ body {
       <li><a href="05_video.html">Video Highlights</a></li>
     </ul>
   </nav>
-  <br>
+
   
   <main>
     <div class="video-container">
@@ -106,18 +37,22 @@ body {
     </div>
   </main>
 
-  <footer class="footer">
-    <p>
-      <a href="03_fixturestable.html">URC League Fixtures</a> |
-      <a href="#">Clubs</a> |
-      <a href="#">Fantasy Rugby Rules</a> |
-      <a href="#">Statistics</a> |
-      <a href="#">Terms of Use</a> |
-      <a href="#">Cookie Policy</a> |
-      <a href="#">Policies</a> |
-      <a href="#">Contact Us</a>
-    </p>
-    <p>&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+    <footer>
+    <table class="footer-table">
+      <tr>
+        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+        <td><a href="#">Clubs</a></td>
+        <td><a href="#">Fantasy Rugby Rules</a></td>
+        <td><a href="#">Statistics</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">Terms of Use</a></td>
+        <td><a href="#">Cookie Policy</a></td>
+        <td><a href="#">Policies</a></td>
+        <td><a href="#">Contact Us</a></td>
+      </tr>
+    </table>
+    <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
   </footer>
 
 </body>
