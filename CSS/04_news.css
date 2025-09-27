@@ -64,6 +64,12 @@ nav {
     width: 100%;
 }
 
+nav#primary-navigation { position: relative; z-index: 10; }
+
+.banner { position: relative; }
+
+.register_button { position: absolute; z-index: 1; }
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -308,79 +314,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   }
 }
 
-/* Tablet portrait: same behavior as mobile (stacked), but sized for tablet.
-   No horizontal scrolling; nav stacked/centered; Latest News & Player Interviews
-   stacked and centered; footer links stacked and centered. */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-  html, body { overflow-x: hidden; }
-
-  /* Single-column flow */
-  body {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 0 16px 16px;
-    box-sizing: border-box;
-  }
-
-  /* Stack and center navigation */
-  nav { grid-column: 1 / -1; }
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 6px;
-  }
-  .nav-links li { list-style: none; width: 100%; }
-  .nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 560px;         /* wider than mobile for tablet */
-    padding: 12px 18px;
-    text-align: center;
-  }
-
-  /* Latest News & Player Interviews: stacked, centered, tablet-proportioned */
-  .latest-news-container,
-  .player-interviews-container {
-    grid-template-columns: 1fr;  /* stack boxes */
-    gap: 14px;
-    padding: 18px;
-  }
-  .latest-news-container .container-box,
-  .player-interviews-container .container-box {
-    width: 100%;
-    max-width: 680px;            /* proportionate width on tablet portrait */
-    margin: 0 auto;              /* centered */
-    text-align: center;
-  }
-
-  /* Footer table: stack vertically and center content */
-  .footer-table,
-  .footer-table tbody,
-  .footer-table tr,
-  .footer-table td {
-    display: block;
-    width: 100%;
-  }
-  .footer-table td {
-    display: flex;               /* vertical + horizontal centering */
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 8px 0;
-    text-align: center;
-  }
-  .footer-table td a {
-    display: inline-block;
-    margin: 0 auto;
-    text-align: center;
-  }
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+@media (min-width: 1025px) {
+  main { grid-column: 1 / -1; grid-row: 3; }
 }
 
 /* Tablet landscape and Desktop: unstack nav and footer; horizontal layout */

@@ -156,6 +156,10 @@ body {
       text-decoration: underline;
     }
 
+nav#primary-navigation { position: relative; z-index: 10; }
+.banner { position: relative; }
+.register_button { position: absolute; z-index: 1; }
+
 /* Mobile: iPhone SE — stack/center nav, fit tables, stack/center footer links */
 @media (max-width: 375px) {
   html, body { overflow-x: hidden; }
@@ -218,99 +222,6 @@ body {
   }
 }
 
-/* Tablet portrait: same behavior as mobile, proportionately sized */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-  html, body { overflow-x: hidden; }
-
-  /* Single-column flow, slightly larger spacing */
-  body {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 16px 16px;
-    box-sizing: border-box;
-  }
-
-  /* Stack and center navigation */
-  nav { grid-column: 1 / -1; }
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 6px;
-  }
-  .nav-links li { list-style: none; width: 100%; }
-  .nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 560px;          /* proportionate width for tablet */
-    padding: 12px 18px;
-    text-align: center;
-  }
-
-  /* Tables: fit viewport width, slightly larger padding */
-  table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-  }
-  th, td {
-    white-space: normal;
-    word-break: break-word;
-    padding: 12px 14px;
-  }
-
-  /* Footer table: stack vertically and center content */
-  .footer-table,
-  .footer-table tbody,
-  .footer-table tr,
-  .footer-table td {
-    display: block;
-    width: 100%;
-  }
-  .footer-table td {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 8px 0;
-    text-align: center;
-  }
-  .footer-table td a {
-    display: inline-block;
-    margin: 0 auto;
-    text-align: center;
-  }
-}
-
-/* Override: Tablet PORTRAIT and Desktop — nav horizontal (not stacked) */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-  nav { display: block; }
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 5px;
-  }
-  .nav-links li { list-style: none; width: auto; border: 0; }
-  .nav-links a {
-    width: auto;
-    max-width: none;
-    padding: 6px 10px;
-    text-align: center;
-  }
-}
-
 /* Desktop */
 @media (min-width: 1025px) {
   nav { display: block; }
@@ -327,6 +238,14 @@ body {
   }
   .nav-links li { width: auto; }
   .nav-links a { width: auto; max-width: none; padding: 6px 10px; }
+}
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+@media (min-width: 1025px) {
+  main { grid-column: 1 / -1; grid-row: 3; }
 }
 
 /* Keep figure elements tidy in header */

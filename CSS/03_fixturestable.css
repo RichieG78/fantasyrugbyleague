@@ -64,6 +64,8 @@ body {
       width: 100%;
     }
 
+    nav#primary-navigation { position: relative; z-index: 10; }
+
     .nav-links {
       list-style: none;
       display: flex;
@@ -339,95 +341,12 @@ body {
       }
     }
 
-    /* Tablet portrait: like mobile (stacked nav/footer), but sized for tablet */
-    @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-      html, body { overflow-x: hidden; }
-
-      /* Single-column flow to avoid horizontal scroll */
-      body {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 0 16px 16px;
-        box-sizing: border-box;
-      }
-
-      /* Stack and center navigation */
-      nav { grid-column: 1 / -1; }
-      .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 0;
-        margin: 0;
-        background: #003366;
-        border-radius: 6px;
-      }
-      .nav-links li { list-style: none; width: 100%; }
-      .nav-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 520px;        /* wider than mobile for tablet */
-        padding: 12px 18px;
-        text-align: center;
-      }
-
-      /* Tables: fit viewport width proportionately, no side scroll */
-      .fixture-table-today,
-      .fixture-table-tomorrow {
-        width: 100%;
-        table-layout: fixed;
-        margin: 20px 0;
-      }
-      /* Slightly adjust column proportions for tablet portrait */
-      .fixture-table-today colgroup col:nth-child(1),
-      .fixture-table-tomorrow colgroup col:nth-child(1),
-      .fixture-table-today colgroup col:nth-child(3),
-      .fixture-table-tomorrow colgroup col:nth-child(3) { width: 44%; }
-      .fixture-table-today colgroup col:nth-child(2),
-      .fixture-table-tomorrow colgroup col:nth-child(2) { width: 12%; }
-
-      .fixture-table-today th,
-      .fixture-table-tomorrow th,
-      .fixture-table-today td,
-      .fixture-table-tomorrow td {
-        white-space: normal;       /* allow wrapping */
-        word-break: break-word;    /* break long names if needed */
-        padding: 12px 14px;        /* slightly larger than mobile */
-      }
-
-      /* Team visuals scale a bit on tablet */
-      .team-cell img.team-logo {
-        width: 36px;
-        height: 36px;
-      }
-      .team-cell .team-name {
-        font-size: 1rem;
-      }
-
-      /* Footer table: stack items vertically and center them */
-      .footer-table,
-      .footer-table tbody,
-      .footer-table tr,
-      .footer-table td {
-        display: block;
-        width: 100%;
-      }
-      .footer-table td {
-        display: flex;
-        align-items: center;       /* vertical center */
-        justify-content: center;   /* horizontal center */
-        min-height: 48px;
-        padding: 8px 0;
-        text-align: center;
-      }
-      .footer-table td a {
-        display: inline-block;
-        margin: 0 auto;
-        text-align: center;
-      }
+    /* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+      main { grid-column: 1 / -1; grid-row: 3; }
+    }
+    @media (min-width: 1025px) {
+      main { grid-column: 1 / -1; grid-row: 3; }
     }
 
     /* Remove default margins on figures used for captions */
@@ -459,3 +378,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
 .nav-links a, button { min-height: 44px; min-width: 44px; }
 @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+
+.banner { position: relative; }
+.register_button { position: absolute; z-index: 1; }

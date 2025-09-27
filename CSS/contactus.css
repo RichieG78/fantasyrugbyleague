@@ -74,6 +74,8 @@ nav {
   width: 100%;
 }
 
+nav#primary-navigation { position: relative; }
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -256,47 +258,9 @@ footer a:hover { text-decoration: underline; }
   }
   .footer-table td {
     display: flex;
-    align-items: center;      /* vertical centering */
-    justify-content: center;  /* horizontal centering */
-    min-height: 44px;
-    padding: 8px 0;
-  }
-}
-
-/* Tablet portrait: like mobile, sized up a bit */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-  body {
-    grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 0 16px 16px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .nav-links a {
-    width: 100%;
-    max-width: 560px;
-    padding: 12px 18px;
-  }
-
-  .contact-card { max-width: 680px; }
-  .contact-form { grid-template-columns: 1fr; gap: 18px; }
-
-  .footer-table,
-  .footer-table tbody,
-  .footer-table tr,
-  .footer-table td {
-    display: block;
-    width: 100%;
-  }
-  .footer-table td {
-    display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 48px;
+    min-height: 44px;
     padding: 8px 0;
   }
 }
@@ -331,6 +295,14 @@ footer a:hover { text-decoration: underline; }
     padding: 8px;
     min-height: 0;
   }
+}
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+@media (min-width: 1025px) {
+  main { grid-column: 1 / -1; grid-row: 3; }
 }
 
 /* Make container box titles (labels) blue */
@@ -396,3 +368,6 @@ input, select, textarea {
 .nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
 .nav-links a, button { min-height: 44px; min-width: 44px; }
 @media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+
+.banner { position: relative; }
+.register_button { position: absolute; z-index: 1; }

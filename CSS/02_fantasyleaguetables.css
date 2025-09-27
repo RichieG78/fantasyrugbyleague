@@ -352,3 +352,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     padding: 12px 14px;
   }
 }
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+@media (min-width: 1025px) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+
+nav#primary-navigation { position: relative; z-index: 10; }
+.banner { position: relative; }
+.register_button { position: absolute; z-index: 1; }

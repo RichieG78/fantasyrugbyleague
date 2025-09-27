@@ -1,5 +1,9 @@
-/* Page grid: 3 columns x 6 rows */
+/* Ensure a single grid flow across all sizes */
     body {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      gap: 20px;
       margin: 0;
       font-family: Arial, sans-serif;
       background: #003366;
@@ -7,6 +11,14 @@
       padding: 0 20px 20px;
       box-sizing: border-box;
     }
+
+    /* Place sections in fixed rows for all screen sizes */
+    header { grid-row: 1; grid-column: 1 / -1; }
+    nav    { grid-row: 2; grid-column: 1 / -1; }
+    .banner { grid-row: 3; grid-column: 1 / -1; }
+    .container-row { grid-row: 4; grid-column: 1 / -1; } /* container boxes live inside this row */
+    .latest-news-container { grid-row: 5; grid-column: 1 / -1; }
+    footer { grid-row: 6; grid-column: 1 / -1; }
 
     header {
       width: 100%;
@@ -60,7 +72,8 @@
     .register_button {
       position: absolute;
       z-index: 1;
-      bottom: 10%;
+      top: 12px;        /* moved to top of the banner */
+      bottom: auto;     /* override previous bottom positioning */
       left: 50%;
       transform: translateX(-50%);
       padding: 12px 24px;
@@ -72,30 +85,35 @@
       font-size: 1rem;
     }
 
-    .container-row {
-      grid-column: 1 / -1;
-      /* row 4 */
-      grid-row: 4;
-      display: contents;
-      /* let children (boxes) occupy body grid columns */
-    }
+    /* Container row sits in grid row 3 across all sizes; boxes stack by default */
+.container-row {
+  grid-row: 3;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr; /* stacked on mobile/tablet portrait */
+  gap: 16px;
+}
 
-    .container-row> .container-box:nth-child(1) {
-      grid-column: 1;
-    }
+/* Tablet landscape: show container boxes horizontally */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .container-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
 
-    .container-row> .container-box:nth-child(2) {
-      grid-column: 2;
-    }
+/* Desktop: show container boxes horizontally */
+@media (min-width: 1025px) {
+  .container-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
 
-    .container-row> .container-box:nth-child(3) {
-      grid-column: 3;
-    }
-
-   /* Container boxes: make image fill the box and overlay caption at bottom */
+/* Container boxes: make image fill the box and overlay caption at bottom */
 .container-box {
   grid-row: 4;
-  height: 100px;              /* keep row height */
+  height: 150px;              /* keep row height */
   position: relative;         /* enable absolute positioning for children */
   border-radius: 8px;
   overflow: hidden;           /* clip image and caption to rounded corners */
@@ -296,6 +314,8 @@
   }
 }
 
+/* Confirmed: no tablet portrait media queries remain */
+
 /* Tablet */
 @media (min-width: 375px) and (max-width: 1024px) {
   /* Keep 3-column grid; enhance Latest News to scroll 2 cards at a time */
@@ -319,8 +339,38 @@
   /* Footer table stays 4x2; no stacking */
 }
 
-/* Main spans all columns in row 3 (tablet portrait + desktop) */
-@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+/* Default: stack vertically */
+.container-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* Ensure all three boxes auto-place (fix overlap from grid-row: 4) */
+.container-row > .container-box {
+  grid-row: auto;
+  grid-column: auto;
+}
+
+/* Up to 767px: stack vertically (all small phones and small tablets) */
+@media (max-width: 767px) {
+  .container-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* From 768px up (tablet and desktop, any orientation): side by side */
+@media (min-width: 768px) {
+  .container-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   main { grid-column: 1 / -1; grid-row: 3; }
 }
 @media (min-width: 1025px) {
@@ -330,18 +380,17 @@
 /* Desktop */
 @media (min-width: 1025px) {
   /* Restore non-scrolling Latest News row */
-
-  .container-box p .line-break {
-    display: block;
-  }
-  .news-boxes-row {
-    overflow-x: visible;
-  }
-
-  .latest-news-box {
-    flex: 1 1 0;
-  }
+  .container-box p .line-break { display: block; }
+  .news-boxes-row { overflow-x: visible; }
+  .latest-news-box { flex: 1 1 0; }
 }
+
+/* Consistent spacing between sections in rows 3, 4, and 5 (all screens) */
+:root { --section-gap: 24px; }
+
+.banner { margin-bottom: var(--section-gap); }          /* space between row 3 and 4 */
+.container-row { margin-bottom: var(--section-gap); }   /* space between row 4 and 5 */
+/* latest-news-container sits after the above, so no extra margin needed */
 
 /* Accessible utility: visually hidden (for headings/captions) */
 .visually-hidden {
@@ -366,6 +415,20 @@
 }
 .skip-link:focus,
 .skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
+
+/* Secondary skip link (to nav): stay hidden unless focused */
+.skip-link--nav {
+  position: absolute;
+  left: 8px;
+  top: -40px;                 /* hidden off-screen */
+}
+.skip-link--nav:focus,
+.skip-link--nav:focus-visible {
+  top: 8px;                   /* reveal only when focused */
+  outline: 3px solid #ffbf47; 
+  outline-offset: 2px;
+  border-radius: 6px;
+}
 
 /* Visible focus styles for keyboard users */
 a:focus-visible,
@@ -406,4 +469,160 @@ button,
   width: 100%;
   height: auto;
   border-radius: 6px;
+}
+
+/* Mobile: stack container boxes vertically */
+@media (max-width: 767px) {
+  .container-row {
+    display: grid;
+    grid-template-columns: 1fr; /* single column */
+    gap: 16px;
+  }
+  .container-box {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+@media (min-width: 1025px) {
+  main { grid-column: 1 / -1; grid-row: 3; }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  /* Restore non-scrolling Latest News row */
+  .container-box p .line-break { display: block; }
+  .news-boxes-row { overflow-x: visible; }
+  .latest-news-box { flex: 1 1 0; }
+}
+
+/* Consistent spacing between sections in rows 3, 4, and 5 (all screens) */
+:root { --section-gap: 24px; }
+
+.banner { margin-bottom: var(--section-gap); }          /* space between row 3 and 4 */
+.container-row { margin-bottom: var(--section-gap); }   /* space between row 4 and 5 */
+/* latest-news-container sits after the above, so no extra margin needed */
+
+/* Accessible utility: visually hidden (for headings/captions) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Skip links */
+.skip-links { position: relative; }
+.skip-link {
+  position: absolute;
+  left: 8px; top: -40px;
+  background: #fff; color: #003366;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.skip-link:focus,
+.skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
+
+/* Secondary skip link (to nav): stay hidden unless focused */
+.skip-link--nav {
+  position: absolute;
+  left: 8px;
+  top: -40px;                 /* hidden off-screen */
+}
+.skip-link--nav:focus,
+.skip-link--nav:focus-visible {
+  top: 8px;                   /* reveal only when focused */
+  outline: 3px solid #ffbf47; 
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Visible focus styles for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #ffbf47; /* high-contrast ring */
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Ensure nav links show hover/focus background for clarity */
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Minimum target size to ease keyboard/mouse use */
+.nav-links a,
+button,
+.login,
+.register_button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within { scroll-behavior: auto; }
+}
+
+/* Images in news boxes scale responsively */
+.latest-news-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Mobile only (<=767px): stack navigation vertically */
+@media (max-width: 767px) {
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center items */
+    gap: 0;
+    padding: 8px 0;
+  }
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  .nav-links li:first-child { border-top: 0; }
+  .nav-links a {
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+  }
+}
+
+/* Make 'Register your team' button 25% bigger */
+.register_button {
+  font-size: 1.25rem;     /* was 1rem */
+  padding: 15px 30px;     /* was 12px 24px */
+  border-radius: 6px;     /* slightly larger to match scale */
+}
+
+/* Ensure nav remains clickable above other content */
+nav#primary-navigation { position: relative; z-index: 10; }
+
+/* Constrain the absolute button to the banner only */
+.banner { position: relative; }
+.register_button {
+  position: absolute;
+  z-index: 1;
+  top: 12px; left: 50%;
+  transform: translateX(-50%);
 }
