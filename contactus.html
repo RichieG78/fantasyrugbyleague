@@ -1,78 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="CSS/contactus.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="CSS/contactus.css" />
 </head>
 <body>
-    <header>
-    <div class="header-container">
-      <img src="Assets/00.urc-logo.png" alt="Fantasy Rugby League Logo" class="URC_logo">
-      <h1 style="font-size:18px; margin:0;">Fantasy Rugby League</h1>
-      <button class="login">Login</button>
-    </div>
-    </header>
-    <main>
-  <section class="contact-card">
-    <h2>Contact Us</h2>
+  <nav aria-label="Skip links" class="skip-links">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#primary-navigation">Skip to primary navigation</a>
+  </nav>
 
-    <form id="contact-form" class="contact-form">
-      <div class="full">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required>
-      </div>
+  <header role="banner">
+  <div class="header-container">
+    <figure class="logo-figure">
+      <img
+        src="Assets/00.urc-logo.png"
+        alt="United Rugby Championship Fantasy Rugby League logo"
+        class="URC_logo"
+        decoding="async"
+        fetchpriority="high"
+        width="160" height="40">
+      <figcaption class="visually-hidden">URC Fantasy Rugby League logo</figcaption>
+    </figure>
 
-      <div class="full">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
-      </div>
+    <h1 style="font-size:18px; margin:0;">Fantasy Rugby League</h1>
+    <button class="login">Login</button>
+  </div>
+</header>
+  <nav id="primary-navigation" aria-label="Primary">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
+      <li><a href="03_fixturestable.html">URC Fixtures</a></li>
+      <li><a href="04_news.html">News</a></li>
+      <li><a href="05_video.html">Video Highlights</a></li>
+    </ul>
+  </nav>
 
-      <div class="full">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
+  <main id="main-content" role="main" tabindex="-1">
+    <section class="contact-card" aria-labelledby="contact-heading">
+      <h1 id="contact-heading">Contact Us</h1>
+      <article aria-label="Contact form">
+        <form id="contact-form" class="contact-form">
+          <div class="full">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required>
+          </div>
 
-      <div class="full">
-        <button type="submit" class="contact-submit">Submit</button>
-      </div>
-    </form>
-  </section>
-</main>
+          <div class="full">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
 
-<script>
-  // Use mailto: to send to the fixed address on submit
-  document.getElementById('contact-form')?.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const name = (document.getElementById('name')?.value || '').trim();
-    const fromEmail = (document.getElementById('email')?.value || '').trim();
-    const msg = (document.getElementById('message')?.value || '').trim();
+          <div class="full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
 
-    const subject = `Website contact from ${name || 'visitor'}`;
-    const body = `Name: ${name}\nEmail: ${fromEmail}\n\n${msg}`;
+          <div class="full">
+            <button type="submit" class="contact-submit">Submit</button>
+          </div>
+        </form>
+      </article>
+    </section>
+  </main>
 
-    window.location.href =
-      `mailto:richard.glynn@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-</script>
-    <footer>
-        <footer>
-    <table class="footer-table">
-      <tr>
-        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
-        <td><a href="#">Clubs</a></td>
-        <td><a href="#">Fantasy Rugby Rules</a></td>
-        <td><a href="#">Statistics</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Terms of Use</a></td>
-        <td><a href="#">Cookie Policy</a></td>
-        <td><a href="#">Policies</a></td>
-        <td><a href="contactus.html">Contact Us</a></td>
-      </tr>
-    </table>
-        <p>&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
-    </footer>
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <table class="footer-table">
+        <tr>
+          <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+          <td><a href="#">Clubs</a></td>
+          <td><a href="#">Fantasy Rugby Rules</a></td>
+          <td><a href="https://www.unitedrugby.com/">Official URC Website</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Terms of Use</a></td>
+          <td><a href="#">Cookie Policy</a></td>
+          <td><a href="#">Policies</a></td>
+          <td><a href="contactus.html">Contact Us</a></td>
+        </tr>
+      </table>
+    </nav>
+    <p>&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Use mailto: to send to the fixed address on submit
+    document.getElementById('contact-form')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = (document.getElementById('name')?.value || '').trim();
+      const fromEmail = (document.getElementById('email')?.value || '').trim();
+      const msg = (document.getElementById('message')?.value || '').trim();
+
+      const subject = `Website contact from ${name || 'visitor'}`;
+      const body = `Name: ${name}\nEmail: ${fromEmail}\n\n${msg}`;
+
+      window.location.href =
+        `mailto:richard.glynn@proton.me?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
 </body>
 </html>

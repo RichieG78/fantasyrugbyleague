@@ -2,62 +2,83 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="CSS/05_video.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Highlights</title>
+  <link rel="stylesheet" href="CSS/05_video.css" />
 </head>
 
 <body>
-  <header>
-        <div class="header-container">
-      <img src="Assets/00.urc-logo.png" alt="Fantasy Rugby League Logo" class="URC_logo">
+  <nav aria-label="Skip links" class="skip-links">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#primary-navigation">Skip to primary navigation</a>
+  </nav>
+
+  <header role="banner">
+    <div class="header-container">
+      <figure class="logo-figure">
+        <img
+          src="Assets/00.urc-logo.png"
+          alt="United Rugby Championship Fantasy Rugby League logo"
+          class="URC_logo"
+          width="160" height="40"
+          decoding="async"
+          fetchpriority="high">
+        <figcaption class="visually-hidden">URC Fantasy Rugby League logo</figcaption>
+      </figure>
       <h1 style="font-size:18px; margin:0;">Fantasy Rugby League</h1>
       <button class="login">Login</button>
     </div>
   </header>
 
-  <nav>
+  <nav id="primary-navigation" aria-label="Primary">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
       <li><a href="03_fixturestable.html">URC Fixtures</a></li>
       <li><a href="04_news.html">News</a></li>
-      <li><a href="05_video.html">Video Highlights</a></li>
+      <li><a href="05_video.html" aria-current="page">Video Highlights</a></li>
     </ul>
   </nav>
 
-  
-  <main>
-  <div class="video-container">
-    <iframe
-      src="https://www.youtube.com/embed/ZkFO4K4kbAE?si=H9U0cyo4xz_MRPJt"
-      title="URC Highlights"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
-  </div>
-</main>
+  <main id="main-content" role="main" tabindex="-1">
+    <section aria-labelledby="video-highlights-heading">
+      <h1 id="video-highlights-heading" class="visually-hidden">Video Highlights</h1>
+      <article aria-label="Featured video">
+        <figure class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/ZkFO4K4kbAE?si=H9U0cyo4xz_MRPJt"
+            title="URC highlights video"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+          <figcaption class="visually-hidden">URC Highlights video</figcaption>
+        </figure>
+      </article>
+    </section>
+  </main>
 
-    <footer>
-    <table class="footer-table">
-      <tr>
-        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
-        <td><a href="#">Clubs</a></td>
-        <td><a href="#">Fantasy Rugby Rules</a></td>
-        <td><a href="#">Statistics</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Terms of Use</a></td>
-        <td><a href="#">Cookie Policy</a></td>
-        <td><a href="#">Policies</a></td>
-        <td><a href="contactus.html">Contact Us</a></td>
-      </tr>
-    </table>
-    <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <table class="footer-table">
+        <tr>
+          <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+          <td><a href="#">Clubs</a></td>
+          <td><a href="#">Fantasy Rugby Rules</a></td>
+          <td><a href="https://www.unitedrugby.com/">Official URC Website</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Terms of Use</a></td>
+          <td><a href="#">Cookie Policy</a></td>
+          <td><a href="#">Policies</a></td>
+          <td><a href="contactus.html">Contact Us</a></td>
+        </tr>
+      </table>
+      <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+    </nav>
   </footer>
-
 </body>
 
 </html>

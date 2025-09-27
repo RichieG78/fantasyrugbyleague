@@ -2,85 +2,118 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="CSS/04_news.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URC News</title>
+  <link rel="stylesheet" href="CSS/04_news.css" />
 </head>
+
 <body>
+  <nav aria-label="Skip links" class="skip-links">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#primary-navigation">Skip to primary navigation</a>
+  </nav>
 
-<header>
-  <div class="header-container">
-    <img src="Assets/00.urc-logo.png" alt="Fantasy Rugby League Logo" style="height: 60px;">
-    <h1>Fantasy Rugby League</h1>
-  </div>
-</header>
+  <header role="banner">
+    <div class="header-container">
+      <figure class="logo-figure">
+        <img src="Assets/00.urc-logo.png" alt="United Rugby Championship Fantasy Rugby League logo" class="URC_logo"
+          decoding="async" fetchpriority="high">
+        <figcaption class="visually-hidden">URC Fantasy Rugby League logo</figcaption>
+      </figure>
+      <h1>Fantasy Rugby League</h1>
+    </div>
+  </header>
 
-  <nav>
+  <nav id="primary-navigation" aria-label="Primary">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
       <li><a href="03_fixturestable.html">URC Fixtures</a></li>
-      <li><a href="04_news.html">News</a></li>
+      <li><a href="04_news.html" aria-current="page">News</a></li>
       <li><a href="05_video.html">Video Highlights</a></li>
     </ul>
   </nav>
-  
-  <main>
-  <!-- These div containers are for the "Latest News" section -->
-  <div class="latest-news-container">
-    <h3>Latest News</h3>
-    <div class="container-box">
-      <img src="Assets/05.opening_weekend.jpg" alt="Player 1" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>URC Opening Weekend</strong></p>
-    </div>
-    <div class="container-box">
-      <img src="Assets/07.latest_news_1.jpeg" alt="Player 2" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>URC: A New Wave of Sponsors Upping the Game</strong></p>
-    </div>
-    <div class="container-box">
-      <img src="Assets/08.latest_news_2.jpeg" alt="Player 3" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>5 Players to watch in the BKT URC this season</strong></p>
-    </div>
-  </div>
 
-  <!-- These div containers are for the "Player Interviews" section -->
-  <div class="player-interviews-container">
-    <h3>Player Interviews</h3>
-    <div class="container-box">
-      <img src="Assets/09_player_interview_1.jpg" alt="Player 1" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>URC Opening Weekend</strong></p>
-    </div>
-    <div class="container-box">
-      <img src="Assets/10_player_interview_2.jpg" alt="Player 2" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>URC: A New Wave of Sponsors Upping the Game</strong></p>
-    </div>
-    <div class="container-box">
-      <img src="Assets/11_player_interview_3.jpg" alt="Player 3" style="width:100%; height:auto; border-radius: 6px;">
-      <p><strong>5 Players to watch in the BKT URC this season</strong></p>
-    </div>
-  </div>
-  
-</main>
+  <main id="main-content" role="main" tabindex="-1">
+    <section class="latest-news-container" aria-labelledby="latest-news-heading">
+      <h1 id="latest-news-heading">Latest News</h1>
+      <div class="news-boxes-row" role="list">
+        <article class="latest-news-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/05.opening_weekend.jpg" alt="Action from the URC opening weekend" loading="lazy"
+              decoding="async" aria-describedby="cap-opening-weekend" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-opening-weekend"><strong>URC Opening Weekend</strong></figcaption>
+          </figure>
+        </article>
 
-  <footer>
-    <table class="footer-table">
-      <tr>
-        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
-        <td><a href="#">Clubs</a></td>
-        <td><a href="#">Fantasy Rugby Rules</a></td>
-        <td><a href="#">Statistics</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Terms of Use</a></td>
-        <td><a href="#">Cookie Policy</a></td>
-        <td><a href="#">Policies</a></td>
-        <td><a href="contactus.html">Contact Us</a></td>
-      </tr>
-    </table>
-    <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+        <article class="latest-news-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/07.latest_news_1.jpeg" alt="Graphic announcing new sponsors for the URC" loading="lazy"
+              decoding="async" aria-describedby="cap-sponsors" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-sponsors"><strong>URC: A New Wave of Sponsors Upping the Game</strong></figcaption>
+          </figure>
+        </article>
+
+        <article class="latest-news-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/08.latest_news_2.jpeg" alt="Collage of five URC players to watch this season" loading="lazy"
+              decoding="async" aria-describedby="cap-players" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-players"><strong>5 Players to watch in the BKT URC this season</strong></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="player-interviews-container" aria-labelledby="player-interviews-heading">
+      <h2 id="player-interviews-heading">Player Interviews</h2>
+      <div class="news-boxes-row" role="list">
+        <article class="container-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/09_player_interview_1.jpg" alt="URC player giving a post‑match interview" loading="lazy"
+              decoding="async" aria-describedby="cap-int-1" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-int-1"><strong>URC Opening Weekend</strong></figcaption>
+          </figure>
+        </article>
+
+        <article class="container-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/10_player_interview_2.jpg" alt="Player answering questions during a URC media session"
+              loading="lazy" decoding="async" aria-describedby="cap-int-2" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-int-2"><strong>URC: A New Wave of Sponsors Upping the Game</strong></figcaption>
+          </figure>
+        </article>
+
+        <article class="container-box" role="listitem">
+          <figure class="container-box">
+            <img src="Assets/11_player_interview_3.jpg" alt="Close-up of a URC player interview" loading="lazy"
+              decoding="async" aria-describedby="cap-int-3" style="width:100%; height:auto; border-radius: 6px;">
+            <figcaption id="cap-int-3"><strong>5 Players to watch in the BKT URC this season</strong></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <table class="footer-table">
+        <tr>
+          <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+          <td><a href="#">Clubs</a></td>
+          <td><a href="#">Fantasy Rugby Rules</a></td>
+          <td><a href="https://www.unitedrugby.com/">Official URC Website</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Terms of Use</a></td>
+          <td><a href="#">Cookie Policy</a></td>
+          <td><a href="#">Policies</a></td>
+          <td><a href="contactus.html">Contact Us</a></td>
+        </tr>
+      </table>
+      <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+    </nav>
   </footer>
-
 </body>
 
 </html>

@@ -1,111 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fantasy League Tables</title>
-  <link rel="stylesheet" href="CSS/02_fantasyleaguetables.css"> 
+  <link rel="stylesheet" href="CSS/02_fantasyleaguetables.css" />
 </head>
-
 <body>
-<header>
-  <div class="header-container">
-    <img src="Assets/00.urc-logo.png" alt="URC Logo" class="URC_logo">
-    <h1>Fantasy Rugby League</h1>
-    <button class="login">Login</button>
-  </div>
-</header>
+  <nav aria-label="Skip links" class="skip-links">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#primary-navigation">Skip to primary navigation</a>
+  </nav>
 
-  <nav>
+  <header role="banner">
+    <div class="header-container">
+      <figure class="logo-figure">
+        <img
+          src="Assets/00.urc-logo.png"
+          alt="United Rugby Championship Fantasy Rugby League logo"
+          class="URC_logo"
+          width="160" height="40"
+          decoding="async"
+          fetchpriority="high">
+        <figcaption class="visually-hidden">URC Fantasy Rugby League logo</figcaption>
+      </figure>
+
+      <h1>Fantasy Rugby League</h1>
+      <button class="login">Login</button>
+    </div>
+  </header>
+
+  <nav id="primary-navigation" aria-label="Primary">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
-      <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
+      <li><a href="02_fantasyleaguetables.html" aria-current="page">Fantasy League Tables</a></li>
       <li><a href="03_fixturestable.html">URC Fixtures</a></li>
       <li><a href="04_news.html">News</a></li>
       <li><a href="05_video.html">Video Highlights</a></li>
     </ul>
   </nav>
 
-<main>
-  <table class="league-table">
-    <thead class="table-header">
-      <tr>
-        <th>Pos</th>
-        <th>Team Name</th>
-        <th>Team Score</th>
-      </tr>
-    </thead>
-    <tbody class="table-body">
-      <tr>
-        <td>1</td>
-        <td>Try Hards</td>
-        <td>1000</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>Ruck 'n' Rollers</td>
-        <td>950</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>Scrum and Coke</td>
-        <td>900</td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>Maul Rats</td>
-        <td>850</td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>The Offloaders</td>
-        <td>800</td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>Drop Kick Heroes</td>
-        <td>750</td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>No Woman No Try</td>
-        <td>700</td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>Ruck Stars</td>
-        <td>650</td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>The Sin Binners</td>
-        <td>600</td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>Tryceratops</td>
-        <td>550</td>
-      </tr>
-    </tbody>
-  </table>
-</main>
+  <main id="main-content" role="main" tabindex="-1">
+    <section aria-labelledby="tables-heading">
+      <h1 id="tables-heading" class="visually-hidden">Fantasy League Tables</h1>
+      <article aria-label="Overall standings">
+        <!-- If using a table, add a caption for SR users -->
+        <table class="league-table">
+          <caption class="visually-hidden">Overall fantasy league standings</caption>
+          <thead class="table-header">
+            <tr>
+              <th>Pos</th>
+              <th>Team Name</th>
+              <th>Team Score</th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr>
+              <td>1</td>
+              <td>Try Hards</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Ruck 'n' Rollers</td>
+              <td>950</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Scrum and Coke</td>
+              <td>900</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Maul Rats</td>
+              <td>850</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>The Offloaders</td>
+              <td>800</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Drop Kick Heroes</td>
+              <td>750</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>No Woman No Try</td>
+              <td>700</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Ruck Stars</td>
+              <td>650</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>The Sin Binners</td>
+              <td>600</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Tryceratops</td>
+              <td>550</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+  </main>
 
-<footer>
-    <table class="footer-table">
-      <tr>
-        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
-        <td><a href="#">Clubs</a></td>
-        <td><a href="#">Fantasy Rugby Rules</a></td>
-        <td><a href="#">Statistics</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Terms of Use</a></td>
-        <td><a href="#">Cookie Policy</a></td>
-        <td><a href="#">Policies</a></td>
-        <td><a href="contactus.html">Contact Us</a></td>
-      </tr>
-    </table>
-    <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <table class="footer-table">
+        <tr>
+          <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+          <td><a href="#">Clubs</a></td>
+          <td><a href="#">Fantasy Rugby Rules</a></td>
+          <td><a href="#">Statistics</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Terms of Use</a></td>
+          <td><a href="#">Cookie Policy</a></td>
+          <td><a href="#">Policies</a></td>
+          <td><a href="contactus.html">Contact Us</a></td>
+        </tr>
+      </table>
+      <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+    </nav>
   </footer>
 </body>
 </html>

@@ -169,7 +169,34 @@ footer {
       text-decoration: underline;
     }
 
-    /* Mobile: iPhone SE (≤374px) */
+    /* Remove default figure spacing for header logo */
+.logo-figure { margin: 0; }
+
+/* A11y utilities and focus styles */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+.skip-links { position: relative; }
+.skip-link {
+  position: absolute; left: 8px; top: -40px;
+  background: #fff; color: #003366;
+  padding: 8px 12px; border-radius: 6px; text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000;
+}
+.skip-link:focus,
+.skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #ffbf47; outline-offset: 2px; border-radius: 4px;
+}
+.nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
+.nav-links a, button { min-height: 44px; min-width: 44px; }
+@media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
+
+/* Mobile: iPhone SE (≤374px) */
 @media (max-width: 374px) {
   /* Collapse layout to single column */
   body {

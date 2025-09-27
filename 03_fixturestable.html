@@ -2,152 +2,217 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=}, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="CSS/03_fixturestable.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>URC Fixtures</title>
+  <link rel="stylesheet" href="CSS/03_fixturestable.css" />
 </head>
 
 <body>
+  <nav aria-label="Skip links" class="skip-links">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#primary-navigation">Skip to primary navigation</a>
+  </nav>
 
-  <header>
+  <header role="banner">
     <div class="header-container">
-      <img src="Assets/00.urc-logo.png" alt="URC Logo" class="URC_logo">
+      <figure class="logo-figure">
+        <img src="Assets/00.urc-logo.png" alt="United Rugby Championship Fantasy Rugby League logo" class="URC_logo"
+          width="160" height="40" decoding="async" fetchpriority="high">
+        <figcaption class="visually-hidden">URC Fantasy Rugby League logo</figcaption>
+      </figure>
       <h1>Fantasy Rugby League</h1>
       <button class="login">Login</button>
     </div>
   </header>
-  <br>
 
-  <nav>
+  <nav id="primary-navigation" aria-label="Primary">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="02_fantasyleaguetables.html">Fantasy League Tables</a></li>
-      <li><a href="03_fixturestable.html">URC Fixtures</a></li>
+      <li><a href="03_fixturestable.html" aria-current="page">URC Fixtures</a></li>
       <li><a href="04_news.html">News</a></li>
       <li><a href="05_video.html">Video Highlights</a></li>
     </ul>
   </nav>
 
-  <main>
-    <table class="fixture-table-today">
-      <thead>
-         <tr>
-        <th class="table-section-title" colspan="3">Today</th>
-      </tr>
-        <tr>
-          <th>Home Team</th>
-          <th></th>
-          <th>Away Team</th>
-        </tr>
-      </thead>
+  <main id="main-content" role="main" tabindex="-1">
+    <section aria-labelledby="today-fixtures">
+      <h1 id="today-fixtures" class="visually-hidden">Today’s Fixtures</h1>
+      <article aria-label="Today">
+        <table class="fixture-table-today">
+          <caption class="visually-hidden">URC fixtures for today</caption>
+          <thead>
+            <tr>
+              <th class="table-section-title" colspan="3">Today</th>
+            </tr>
+            <tr>
+              <th>Home Team</th>
+              <th></th>
+              <th>Away Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/06_munster.png" alt="Munster rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Munster logo</figcaption>
+                </figure>
+                <span class="team-name">Munster</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Leinster</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/13_leinster.png" alt="Leinster rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Leinster logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/15_ulster.png" alt="Ulster rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Ulster logo</figcaption>
+                </figure>
+                <span class="team-name">Ulster</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Connacht</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/02_connacht.png" alt="Connacht rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Connacht logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/12_glasgow.png" alt="Glasgow Warriors rugby club logo" class="team-logo"
+                    width="34" height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Glasgow Warriors logo</figcaption>
+                </figure>
+                <span class="team-name">Glasgow Warriors</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Edinburgh</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/11_edinburgh.png" alt="Edinburgh rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Edinburgh logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
 
-      <tbody>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/06_munster.png" alt="Munster" class="team-logo">
-            <span class="team-name">Munster</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Leinster</span>
-            <img src="Assets/Team Logos/13_leinster.png" alt="Leinster" class="team-logo">
-          </td>
-        </tr>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/15_ulster.png"Ulster" class="team-logo">
-            <span class="team-name">Ulster</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Connacht</span>
-            <img src="Assets/Team Logos/02_connacht.png" alt="Connacht" class="team-logo">
-          </td>
-        </tr>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/12_glasgow.png" alt="Glasgow Warriors" class="team-logo">
-            <span class="team-name">Glasgow Warriors</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Edinburgh</span>
-            <img src="Assets/Team Logos/11_edinburgh.png" alt="Edinburgh" class="team-logo">
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  
-    <table class="fixture-table-tomorrow">
-         <thead>
-         <tr>
-        <th class="table-section-title" colspan="3">Tomorrow</th>
-      </tr>
-        <tr>
-          <th>Home Team</th>
-          <th></th>
-          <th>Away Team</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/09_cardiff.png"Cardiff" class="team-logo">
-            <span class="team-name">Cardiff</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Dragons</span>
-            <img src="Assets/Team Logos/03.dragons.png" alt="Dragons" class="team-logo">
-          </td>
-        </tr>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/07_scarlets.png" alt="Scarlets" class="team-logo">
-            <span class="team-name">Scarlets</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Ospreys</span>
-            <img src="Assets/Team Logos/14_ospreys.png" alt="Ospreys" class="team-logo">
-          </td>
-        </tr>
-        <tr>
-          <td class="team-cell left">
-            <img src="Assets/Team Logos/01_benneton.png" alt="Benetton" class="team-logo">
-            <span class="team-name">Benetton</span>
-          </td>
-          <td class="vs-cell">vs</td>
-          <td class="team-cell right">
-            <span class="team-name">Zebre</span>
-            <img src="Assets/Team Logos/16_zebre.png" alt="Zebre" class="team-logo">
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <section aria-labelledby="tomorrow-fixtures">
+      <h2 id="tomorrow-fixtures" class="visually-hidden">Tomorrow’s Fixtures</h2>
+      <article aria-label="Tomorrow">
+        <table class="fixture-table-tomorrow">
+          <caption class="visually-hidden">URC fixtures for tomorrow</caption>
+          <thead>
+            <tr>
+              <th class="table-section-title" colspan="3">Tomorrow</th>
+            </tr>
+            <tr>
+              <th>Home Team</th>
+              <th></th>
+              <th>Away Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/09_cardiff.png" alt="Cardiff rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Cardiff logo</figcaption>
+                </figure>
+                <span class="team-name">Cardiff</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Dragons</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/03.dragons.png" alt="Dragons rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Dragons logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/07_scarlets.png" alt="Scarlets rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Scarlets logo</figcaption>
+                </figure>
+                <span class="team-name">Scarlets</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Ospreys</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/14_ospreys.png" alt="Ospreys rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Ospreys logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+            <tr>
+              <td class="team-cell left">
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/01_benneton.png" alt="Benetton rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Benetton logo</figcaption>
+                </figure>
+                <span class="team-name">Benetton</span>
+              </td>
+              <td class="vs-cell">vs</td>
+              <td class="team-cell right">
+                <span class="team-name">Zebre</span>
+                <figure class="team-logo-figure">
+                  <img src="Assets/Team Logos/16_zebre.png" alt="Zebre rugby club logo" class="team-logo" width="34"
+                    height="34" loading="lazy" decoding="async">
+                  <figcaption class="visually-hidden">Zebre logo</figcaption>
+                </figure>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
   </main>
 
-  <footer>
-    <table class="footer-table">
-      <tr>
-        <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
-        <td><a href="#">Clubs</a></td>
-        <td><a href="#">Fantasy Rugby Rules</a></td>
-        <td><a href="#">Statistics</a></td>
-      </tr>
-      <tr>
-        <td><a href="#">Terms of Use</a></td>
-        <td><a href="#">Cookie Policy</a></td>
-        <td><a href="#">Policies</a></td>
-        <td><a href="contactus.html">Contact Us</a></td>
-      </tr>
-    </table>
-    <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+  <footer role="contentinfo">
+    <nav aria-label="Footer">
+      <table class="footer-table">
+        <tr>
+          <td><a href="03_fixturestable.html">URC League Fixtures</a></td>
+          <td><a href="#">Clubs</a></td>
+          <td><a href="#">Fantasy Rugby Rules</a></td>
+          <td><a href="https://www.unitedrugby.com/">Official URC Website</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">Terms of Use</a></td>
+          <td><a href="#">Cookie Policy</a></td>
+          <td><a href="#">Policies</a></td>
+          <td><a href="contactus.html">Contact Us</a></td>
+        </tr>
+      </table>
+      <p style="text-align:center; margin:0;">&copy; 2024 Fantasy Rugby League. All rights reserved.</p>
+    </nav>
   </footer>
-
-</body>
 </body>
 
 </html>
