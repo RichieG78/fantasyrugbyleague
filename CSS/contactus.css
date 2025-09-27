@@ -7,12 +7,22 @@
 }
 
 /* Prevent horizontal scrolling */
-html, body { max-width: 100%; overflow-x: hidden; }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -76,7 +86,9 @@ nav {
   width: 100%;
 }
 
-nav#primary-navigation { position: relative; }
+nav#primary-navigation {
+  position: relative;
+}
 
 .nav-links {
   list-style: none;
@@ -90,7 +102,9 @@ nav#primary-navigation { position: relative; }
   border-radius: 5px;
 }
 
-.nav-links li { list-style: none; }
+.nav-links li {
+  list-style: none;
+}
 
 .nav-links a {
   color: #fff;
@@ -121,7 +135,7 @@ main {
   padding: 20px;
   max-width: 900px;
   margin: 0 auto;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .contact-card h2 {
@@ -135,8 +149,10 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  row-gap: 6px;          /* label -> input spacing */
-  column-gap: 16px;      /* keeps two-column layout tidy */
+  row-gap: 6px;
+  /* label -> input spacing */
+  column-gap: 16px;
+  /* keeps two-column layout tidy */
 }
 
 .contact-form .full {
@@ -165,7 +181,10 @@ select {
   margin-bottom: 16px;
 }
 
-textarea { min-height: 120px; resize: vertical; }
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
 
 input:focus,
 textarea:focus,
@@ -229,7 +248,9 @@ footer a {
   font-size: 0.9rem;
 }
 
-footer a:hover { text-decoration: underline; }
+footer a:hover {
+  text-decoration: underline;
+}
 
 /* Mobile: iPhone SE and similar — stack nav and footer links, single-column form */
 @media (max-width: 375px) {
@@ -244,12 +265,28 @@ footer a:hover { text-decoration: underline; }
     gap: 0;
     border-radius: 6px;
   }
-  .nav-links li { width: 100%; border-top: 1px solid rgba(255,255,255,0.15); }
-  .nav-links li:first-child { border-top: 0; }
-  .nav-links a { width: 100%; padding: 12px 16px; }
 
-  .contact-card { padding: 16px; }
-  .contact-form { grid-template-columns: 1fr; }
+  .nav-links li {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-links li:first-child {
+    border-top: 0;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .contact-card {
+    padding: 16px;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
 
   .footer-table,
   .footer-table tbody,
@@ -258,6 +295,7 @@ footer a:hover { text-decoration: underline; }
     display: block;
     width: 100%;
   }
+
   .footer-table td {
     display: flex;
     align-items: center;
@@ -268,7 +306,8 @@ footer a:hover { text-decoration: underline; }
 }
 
 /* Tablet landscape and Desktop: horizontal nav and footer */
-@media (min-width: 768px) and (orientation: landscape), (min-width: 1025px) {
+@media (min-width: 768px) and (orientation: landscape),
+(min-width: 1025px) {
   body {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -280,17 +319,30 @@ footer a:hover { text-decoration: underline; }
     gap: 20px;
     border-radius: 5px;
   }
-  .nav-links a { width: auto; padding: 6px 10px; }
 
-  .contact-card { max-width: 900px; }
+  .nav-links a {
+    width: auto;
+    padding: 6px 10px;
+  }
 
-  .footer-table { 
+  .contact-card {
+    max-width: 900px;
+  }
+
+  .footer-table {
     display: table;
     width: 100%;
     border-collapse: collapse;
   }
-  .footer-table tbody { display: table-row-group; }
-  .footer-table tr { display: table-row; }
+
+  .footer-table tbody {
+    display: table-row-group;
+  }
+
+  .footer-table tr {
+    display: table-row;
+  }
+
   .footer-table td {
     display: table-cell;
     vertical-align: middle;
@@ -301,10 +353,17 @@ footer a:hover { text-decoration: underline; }
 
 /* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  main { grid-column: 1 / -1; grid-row: 3; }
+  main {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
 }
+
 @media (min-width: 1025px) {
-  main { grid-column: 1 / -1; grid-row: 3; }
+  main {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
 }
 
 /* Make container box titles (labels) blue */
@@ -313,13 +372,17 @@ footer a:hover { text-decoration: underline; }
 }
 
 /* Don’t add extra space after the last element in the form */
-.contact-form > :last-child {
+.contact-form> :last-child {
   margin-bottom: 0;
 }
 
 /* Mobile: keep comfortable spacing when stacked */
 @media (max-width: 375px) {
-  .contact-form { row-gap: 6px; column-gap: 0; }
+  .contact-form {
+    row-gap: 6px;
+    column-gap: 0;
+  }
+
   .contact-form input[type="text"],
   .contact-form input[type="email"],
   .contact-form input[type="tel"],
@@ -327,12 +390,19 @@ footer a:hover { text-decoration: underline; }
   .contact-form textarea {
     margin-bottom: 14px;
   }
-  .contact-form > :last-child { margin-bottom: 0; }
+
+  .contact-form> :last-child {
+    margin-bottom: 0;
+  }
 }
 
 /* Tablet portrait: slightly larger spacing */
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
-  .contact-form { row-gap: 6px; column-gap: 0; }
+  .contact-form {
+    row-gap: 6px;
+    column-gap: 0;
+  }
+
   .contact-form input[type="text"],
   .contact-form input[type="email"],
   .contact-form input[type="tel"],
@@ -340,36 +410,89 @@ footer a:hover { text-decoration: underline; }
   .contact-form textarea {
     margin-bottom: 16px;
   }
-  .contact-form > :last-child { margin-bottom: 0; }
+
+  .contact-form> :last-child {
+    margin-bottom: 0;
+  }
 }
 
 /* A11y utilities and focus styles */
 .visually-hidden {
   position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0);
-  white-space: nowrap; border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
-.skip-links { position: relative; }
-.skip-link {
-  position: absolute; left: 8px; top: -40px;
-  background: #fff; color: #003366;
-  padding: 8px 12px; border-radius: 6px; text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000;
-}
-.skip-link:focus,
-.skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
-  outline: 3px solid #ffbf47; outline-offset: 2px; border-radius: 4px;
-}
-/* Make form controls clearly focusable */
-input, select, textarea {
-  outline: none; /* rely on focus-visible ring */
-}
-.nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
-.nav-links a, button { min-height: 44px; min-width: 44px; }
-@media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
 
-.banner { position: relative; }
-.register_button { position: absolute; z-index: 1; }
+.skip-links {
+  position: relative;
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -40px;
+  background: #fff;
+  color: #003366;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 8px;
+  outline: 3px solid #ffbf47;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Make form controls clearly focusable */
+input,
+select,
+textarea {
+  outline: none;
+  /* rely on focus-visible ring */
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-links a,
+button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+.banner {
+  position: relative;
+}
+
+.register_button {
+  position: absolute;
+  z-index: 1;
+}

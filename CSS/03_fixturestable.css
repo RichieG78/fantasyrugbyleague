@@ -1,461 +1,591 @@
 body {
-      font-family: Arial, sans-serif;
-      background-color: #003366;
-      /* URC dark blue */
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      grid-template-rows: auto auto auto auto auto;
-      gap: 5px;
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  font-family: Arial, sans-serif;
+  background-color: #003366;
+  /* URC dark blue */
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto auto auto auto;
+  gap: 5px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 10px 10px;
-      grid-column: 1 / -1;
-      grid-row: 1;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+header {
+  background-color: #003366;
+  color: white;
+  padding: 10px 10px;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .header-container {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: #003366;
-      color: #fff;
-      height: 60px;
-      padding: 0 16px;
-      box-sizing: border-box;
-    }
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #003366;
+  color: #fff;
+  height: 60px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
 
-    .URC_logo {
-      height: 40px;
-      width: auto;
-    }
+.URC_logo {
+  height: 40px;
+  width: auto;
+}
 
-    .header-container h1 {
-      margin: 0;
-      font-size: 18px;
-      flex: 1;
-      /* centers title between logo and button */
-      text-align: center;
-    }
+.header-container h1 {
+  margin: 0;
+  font-size: 18px;
+  flex: 1;
+  /* centers title between logo and button */
+  text-align: center;
+}
 
-    .login {
-      margin-left: auto;
-      background: #fff;
-      color: #003366;
-      border: none;
-      border-radius: 4px;
-      padding: 8px 14px;
-      cursor: pointer;
-    }
+.login {
+  margin-left: auto;
+  background: #fff;
+  color: #003366;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
 
-    nav {
-      grid-column: 1 / -1;
-      grid-row: 2;
-      width: 100%;
-    }
+nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+}
 
-    nav#primary-navigation { position: relative; z-index: 10; }
+nav#primary-navigation {
+  position: relative;
+  z-index: 10;
+}
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-      margin: 0;
-      background: #003366;
-      border-radius: 5px;
-    }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  background: #003366;
+  border-radius: 5px;
+}
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      display: inline-flex;
-      /* was inline-block */
-      align-items: center;
-      /* vertical centering */
-      justify-content: center;
-      /* horizontal centering */
-      padding: 6px 10px;
-      border-radius: 4px;
-      text-align: center;
-      /* centers multi-line text */
-    }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  /* was inline-block */
+  align-items: center;
+  /* vertical centering */
+  justify-content: center;
+  /* horizontal centering */
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-align: center;
+  /* centers multi-line text */
+}
 
-    .nav-links a:hover {
-      background: rgba(255, 255, 255, 0.15);
-    }
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
 
-    main {
-      grid-column: 1 / -1;
-      grid-row: 4;
-      flex: 1;
-      width: 100%;
-      background: #003366;
-      border-radius: 8px;
-      padding: 20px;
-      box-sizing: border-box;
-    }
+main {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  flex: 1;
+  width: 100%;
+  background: #003366;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+}
 
-    h2 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    /* --- League table style parity (match fantasyleaguetables.css) --- */
+/* --- League table style parity (match fantasyleaguetables.css) --- */
 
-    /* Reset old fixture table overrides */
-    .fixture-table-today,
-    .fixture-table-tomorrow {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 30px 0;
-      background: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      border: 1px solid #cccccc;
-    }
+/* Reset old fixture table overrides */
+.fixture-table-today,
+.fixture-table-tomorrow {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 30px 0;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid #cccccc;
+}
 
-    .fixture-table-today thead th,
-    .fixture-table-tomorrow thead th {
-      background: #f4f4f4;
-      color: #222;
-      font-weight: 600;
-      padding: 10px 12px;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
+.fixture-table-today thead th,
+.fixture-table-tomorrow thead th {
+  background: #f4f4f4;
+  color: #222;
+  font-weight: 600;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
 
-    .fixture-table-today td,
-    .fixture-table-tomorrow td {
-      border: 1px solid #ccc;
-      padding: 10px 12px;
-      text-align: center;
-      background: #fff;
-      color: #222;
-    }
+.fixture-table-today td,
+.fixture-table-tomorrow td {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  text-align: center;
+  background: #fff;
+  color: #222;
+}
 
-    .fixture-table-today tr:nth-child(even) td,
-    .fixture-table-tomorrow tr:nth-child(even) td {
-      background: #fafafa;
-    }
+.fixture-table-today tr:nth-child(even) td,
+.fixture-table-tomorrow tr:nth-child(even) td {
+  background: #fafafa;
+}
 
-    .fixture-table-today tr:hover td,
-    .fixture-table-tomorrow tr:hover td {
-      background: #eef6ff;
-    }
+.fixture-table-today tr:hover td,
+.fixture-table-tomorrow tr:hover td {
+  background: #eef6ff;
+}
 
-    .vs-cell {
-      font-weight: 600;
-      color: #003366;
-    }
+.vs-cell {
+  font-weight: 600;
+  color: #003366;
+}
 
-    /* Team cells reuse existing flex layout */
-    .team-cell {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0;
-      background: transparent;
-      border: none;
-      justify-content: flex-start;
-      min-width: 0;
-    }
+/* Team cells reuse existing flex layout */
+.team-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  justify-content: flex-start;
+  min-width: 0;
+}
 
-    .team-cell.left {
-      flex-direction: row;              /* logo then name */
-      text-align: left;
-    }
+.team-cell.left {
+  flex-direction: row;
+  /* logo then name */
+  text-align: left;
+}
 
-    .team-cell.right {
-      flex-direction: row;              /* name then logo (HTML order handles) */
-      justify-content: flex-end;
-      text-align: right;
-    }
+.team-cell.right {
+  flex-direction: row;
+  /* name then logo (HTML order handles) */
+  justify-content: flex-end;
+  text-align: right;
+}
 
-    .team-cell img.team-logo {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-      flex-shrink: 0;
-      display: block;
-    }
+.team-cell img.team-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
 
-    .team-cell .team-name {
-      white-space: nowrap;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #222;
-      line-height: 1.1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      max-width: 100%;
-    }
+.team-cell .team-name {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #222;
+  line-height: 1.1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
 
-    /* Remove prior specific background colors & borders for old styling */
-    .fixture-table-today tr,
-    .fixture-table-tomorrow tr,
-    .fixture-table-today td,
-    .fixture-table-tomorrow td {
-      background-image: none;
-    }
+/* Remove prior specific background colors & borders for old styling */
+.fixture-table-today tr,
+.fixture-table-tomorrow tr,
+.fixture-table-today td,
+.fixture-table-tomorrow td {
+  background-image: none;
+}
 
-    footer {
-      grid-column: 1 / -1;
-      grid-row: 5;
-      /* body defines 5 rows */
-      width: 100%;
-      background: #003366;
-      color: #fff;
-      padding: 20px 16px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+footer {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  /* body defines 5 rows */
+  width: 100%;
+  background: #003366;
+  color: #fff;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    .footer-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 10px;
-    }
+.footer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
 
-    .footer-table td {
-      padding: 8px;
-      color: #fff;
-      text-align: center;
-    }
+.footer-table td {
+  padding: 8px;
+  color: #fff;
+  text-align: center;
+}
 
-    footer a {
-      color: #fff;
-      text-decoration: none;
-    }
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+footer a:hover {
+  text-decoration: underline;
+}
 
-    /* Fixed column layout for both fixture tables */
-    .fixture-table-today,
-    .fixture-table-tomorrow {
-      table-layout: fixed;            /* prevent column width shift */
-      width: 100%;
-    }
+/* Fixed column layout for both fixture tables */
+.fixture-table-today,
+.fixture-table-tomorrow {
+  table-layout: fixed;
+  /* prevent column width shift */
+  width: 100%;
+}
 
-    .fixture-table-today colgroup col:nth-child(1),
-    .fixture-table-tomorrow colgroup col:nth-child(1),
-    .fixture-table-today colgroup col:nth-child(3),
-    .fixture-table-tomorrow colgroup col:nth-child(3) {
-      width: 47%;              /* widened team columns */
-    }
+.fixture-table-today colgroup col:nth-child(1),
+.fixture-table-tomorrow colgroup col:nth-child(1),
+.fixture-table-today colgroup col:nth-child(3),
+.fixture-table-tomorrow colgroup col:nth-child(3) {
+  width: 47%;
+  /* widened team columns */
+}
 
-    .fixture-table-today colgroup col:nth-child(2),
-    .fixture-table-tomorrow colgroup col:nth-child(2) {
-      width: 6%;               /* narrower middle (vs) column */
-    }
+.fixture-table-today colgroup col:nth-child(2),
+.fixture-table-tomorrow colgroup col:nth-child(2) {
+  width: 6%;
+  /* narrower middle (vs) column */
+}
 
-    /* Ensure cell contents don’t overflow */
-    .fixture-table-today th,
-    .fixture-table-tomorrow th,
-    .fixture-table-today td,
-    .fixture-table-tomorrow td {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+/* Ensure cell contents don’t overflow */
+.fixture-table-today th,
+.fixture-table-tomorrow th,
+.fixture-table-today td,
+.fixture-table-tomorrow td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-    /* Mobile: iPhone SE — stack/center nav, fit tables, stack/center footer links */
-    @media (max-width: 375px) {
-      html, body { overflow-x: hidden; }
+/* Mobile: iPhone SE — stack/center nav, fit tables, stack/center footer links */
+@media (max-width: 375px) {
 
-      /* Stack and center navigation */
-      nav { grid-column: 1 / -1; }
-      .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 0;
-        margin: 0;
-        background: #003366;
-        border-radius: 6px;
-      }
-      .nav-links li { list-style: none; width: 100%; }
-      .nav-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        max-width: 320px;
-        padding: 10px 16px;
-        text-align: center;
-      }
+  html,
+  body {
+    overflow-x: hidden;
+  }
 
-      /* Tables fill viewport width without horizontal scrolling */
-      .fixture-table-today,
-      .fixture-table-tomorrow {
-        width: 100%;
-        table-layout: fixed;
-        margin: 16px 0;
-      }
-      .fixture-table-today th,
-      .fixture-table-tomorrow th,
-      .fixture-table-today td,
-      .fixture-table-tomorrow td {
-        white-space: normal;        /* allow wrapping */
-        word-break: break-word;     /* break long names if needed */
-        padding: 10px;
-      }
+  /* Stack and center navigation */
+  nav {
+    grid-column: 1 / -1;
+  }
 
-      /* Footer table: stack items vertically and center them */
-      .footer-table,
-      .footer-table tbody,
-      .footer-table tr,
-      .footer-table td {
-        display: block;
-        width: 100%;
-      }
-      .footer-table td {
-        display: flex;              /* center content vertically and horizontally */
-        align-items: center;
-        justify-content: center;
-        min-height: 44px;           /* touch-friendly */
-        padding: 8px 0;
-        text-align: center;
-      }
-      .footer-table td a {
-        display: inline-block;
-        margin: 0 auto;
-        text-align: center;
-      }
-    }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
 
-    /* 375px–768px: keep mobile layout for nav and footer (stacked, centered) */
-    @media (min-width: 375px) and (max-width: 768px) {
-      /* Stack and center navigation links */
-      nav { grid-column: 1 / -1; }
-      .nav-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 0;
-        margin: 0;
-        background: #003366;
-        border-radius: 6px;
-      }
-      .nav-links li { list-style: none; width: 100%; }
-      .nav-links a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;              /* full-width button-like links */
-        padding: 12px 16px;
-        text-align: center;
-      }
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+  }
 
-      /* Footer table: stack cells vertically and center contents */
-      .footer-table,
-      .footer-table tbody,
-      .footer-table tr,
-      .footer-table td {
-        display: block;
-        width: 100%;
-      }
-      .footer-table td {
-        display: flex;
-        align-items: center;       /* vertical centering */
-        justify-content: center;   /* horizontal centering */
-        min-height: 44px;
-        padding: 8px 0;
-        text-align: center;
-      }
-      .footer-table td a {
-        display: inline-block;
-        margin: 0 auto;
-        text-align: center;
-      }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 16px;
+    text-align: center;
+  }
 
-      /* Ensure fixture tables fit viewport without horizontal scroll */
-      .fixture-table-today,
-      .fixture-table-tomorrow {
-        width: 100%;
-        table-layout: fixed;
-        margin: 16px 0;
-      }
-      .fixture-table-today th,
-      .fixture-table-tomorrow th,
-      .fixture-table-today td,
-      .fixture-table-tomorrow td {
-        white-space: normal;
-        word-break: break-word;
-        padding: 10px 12px;
-      }
-    }
+  /* Tables fill viewport width without horizontal scrolling */
+  .fixture-table-today,
+  .fixture-table-tomorrow {
+    width: 100%;
+    table-layout: fixed;
+    margin: 16px 0;
+  }
 
-    /* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
-    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-      main { grid-column: 1 / -1; grid-row: 3; }
-    }
-    @media (min-width: 1025px) {
-      main { grid-column: 1 / -1; grid-row: 3; }
-    }
+  .fixture-table-today th,
+  .fixture-table-tomorrow th,
+  .fixture-table-today td,
+  .fixture-table-tomorrow td {
+    white-space: normal;
+    /* allow wrapping */
+    word-break: break-word;
+    /* break long names if needed */
+    padding: 10px;
+  }
 
-    /* Remove default margins on figures used for captions */
-figure { margin: 0; }
-.logo-figure { margin: 0; }
+  /* Footer table: stack items vertically and center them */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .footer-table td {
+    display: flex;
+    /* center content vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    /* touch-friendly */
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .footer-table td a {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* 375px–768px: keep mobile layout for nav and footer (stacked, centered) */
+@media (min-width: 375px) and (max-width: 768px) {
+
+  /* Stack and center navigation links */
+  nav {
+    grid-column: 1 / -1;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
+
+  .nav-links li {
+    list-style: none;
+    width: 100%;
+  }
+
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* full-width button-like links */
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  /* Footer table: stack cells vertically and center contents */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .footer-table td {
+    display: flex;
+    align-items: center;
+    /* vertical centering */
+    justify-content: center;
+    /* horizontal centering */
+    min-height: 44px;
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .footer-table td a {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* Ensure fixture tables fit viewport without horizontal scroll */
+  .fixture-table-today,
+  .fixture-table-tomorrow {
+    width: 100%;
+    table-layout: fixed;
+    margin: 16px 0;
+  }
+
+  .fixture-table-today th,
+  .fixture-table-tomorrow th,
+  .fixture-table-today td,
+  .fixture-table-tomorrow td {
+    white-space: normal;
+    word-break: break-word;
+    padding: 10px 12px;
+  }
+}
+
+/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  main {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+
+@media (min-width: 1025px) {
+  main {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+
+/* Remove default margins on figures used for captions */
+figure {
+  margin: 0;
+}
+
+.logo-figure {
+  margin: 0;
+}
 
 /* Screen-reader-only captions so visuals don’t change */
 .visually-hidden {
   position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0);
-  white-space: nowrap; border: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* A11y utilities and focus styles */
-.skip-links { position: relative; }
-.skip-link {
-  position: absolute; left: 8px; top: -40px;
-  background: #fff; color: #003366;
-  padding: 8px 12px; border-radius: 6px; text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000;
+.skip-links {
+  position: relative;
 }
-.skip-link:focus,
-.skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
-  outline: 3px solid #ffbf47; outline-offset: 2px; border-radius: 4px;
-}
-.nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
-.nav-links a, button { min-height: 44px; min-width: 44px; }
-@media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
 
-.banner { position: relative; }
-.register_button { position: absolute; z-index: 1; }
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -40px;
+  background: #fff;
+  color: #003366;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 8px;
+  outline: 3px solid #ffbf47;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #ffbf47;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-links a,
+button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+}
+
+.banner {
+  position: relative;
+}
+
+.register_button {
+  position: absolute;
+  z-index: 1;
+}
 
 /* Prevent horizontal scrolling */
-html, body { max-width: 100%; overflow-x: hidden; }
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
 /* Grid/flex children shouldn’t force overflow */
-header, nav, main, footer, .banner, .container-row, .latest-news-container,
-.nav-links, table { min-width: 0; min-inline-size: 0; }
+header,
+nav,
+main,
+footer,
+.banner,
+.container-row,
+.latest-news-container,
+.nav-links,
+table {
+  min-width: 0;
+  min-inline-size: 0;
+}
 
 /* Tables fit viewport */
-table { width: 100%; table-layout: fixed; }
-th, td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
-img { max-width: 100%; height: auto; display: block; }
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th,
+td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
