@@ -1,3 +1,18 @@
+/* Prevent horizontal scrolling */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Predictable sizing */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* Don’t let grid/flex tracks overflow */
+header, nav, main, footer, .banner, .container-row, .latest-news-container,
+.nav-links, .footer-table { min-width: 0; min-inline-size: 0; }
+
+/* Constrain hero image */
+.banner_hero_image { width: 100%; height: auto; display: block; }
+
 /* Ensure a single grid flow across all sizes */
     body {
       display: grid;

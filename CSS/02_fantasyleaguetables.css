@@ -12,6 +12,14 @@ body {
   box-sizing: border-box;
 }
 
+/* Prevent horizontal scrolling */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* Make sizing predictable */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
 /* Header spans all three columns (row 1) */
 header {
   grid-column: 1 / -1;
@@ -229,61 +237,41 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     border: 0;
   }
 }
+/* Mobile: small phones (375px to 767px) */
+@media (min-width: 375px) and (max-width: 767px)
 
-/* Tablet PORTRAIT: behave like mobile, fit proportionately (no side scroll) */
-@media (min-width: 375px) and (max-width: 1024px) and (orientation: portrait) {
-  /* Single-column layout like mobile */
+{
+  /* Collapse layout to single column */
   body {
     grid-template-columns: 1fr;
-    gap: 14px;
-    padding: 0 14px 14px;
+    gap: 12px;
+    padding: 0 12px 12px;
   }
 
-  header, nav, footer { grid-column: 1 / -1; }
-  main { grid-column: 1 / -1; grid-row: 3; }
-
-  /* Stack navigation vertically */
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px 0;
-    margin: 0;
-    border-radius: 6px;
-    background: #003366;
+  main {
+    grid-column: 1 / -1;
+    grid-row: 3;
   }
-  .nav-links li {
-    list-style: none;
-    width: 100%;
-    border-top: 1px solid rgba(255,255,255,0.15);
-  }
-  .nav-links li:first-child { border-top: 0; }
-  .nav-links a {
-    display: block;
-    width: 100%;
-    padding: 12px 16px;
-    text-align: left;
+  header,
+  nav,
+  footer {
+    grid-column: 1 / -1;
   }
 
-  /* League table: fill width, prevent side scroll */
-  .league-table { width: 100%; table-layout: fixed; }
-  .league-table th, .league-table td {
-    white-space: normal;
-    word-break: break-word;
-    padding: 10px;
-  }
-
-  /* Footer links stacked vertically */
+    /* Footer table: stack links vertically */
   .footer-table,
+  .footer-table tbody,
   .footer-table tr,
   .footer-table td {
     display: block;
     width: 100%;
-    padding: 6px 0;
+  }
+
+  .footer-table td {
+    padding: 10px 0;
+    border: 0;
   }
 }
-
 /* Tablet LANDSCAPE: horizontal nav, table spans proportionately */
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   /* Keep 3-column page grid as default */
@@ -364,3 +352,57 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 nav#primary-navigation { position: relative; z-index: 10; }
 .banner { position: relative; }
 .register_button { position: absolute; z-index: 1; }
+
+/* Force centered nav links across breakpoints */
+nav#primary-navigation .nav-links {
+  justify-content: center !important;
+  align-items: center !important;
+}
+nav#primary-navigation .nav-links a {
+  text-align: center !important;
+}
+
+/* Force centered footer table content across breakpoints */
+.footer-table td { text-align: center !important; }
+.footer-table td > * {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 375px–768px: stack nav items vertically and center links */
+@media (min-width: 375px) and (max-width: 768px) {
+  nav#primary-navigation .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 8px 0;
+    margin: 0;
+  }
+  nav#primary-navigation .nav-links li {
+    list-style: none;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+  nav#primary-navigation .nav-links li:first-child { border-top: 0; }
+  nav#primary-navigation .nav-links a {
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+  }
+}
+
+/* Grid/flex children shouldn’t force overflow */
+header, nav, main, footer, .banner, .container-row, .latest-news-container,
+.nav-links, .footer-table { min-width: 0; min-inline-size: 0; }
+
+/* Media and tables stay inside viewport */
+img, svg, video { max-width: 100%; height: auto; display: block; }
+.league-table { width: 100%; table-layout: fixed; }
+.league-table th, .league-table td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}

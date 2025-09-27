@@ -381,3 +381,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     text-align: center;
   }
 }
+
+/* Prevent horizontal scrolling */
+html, body { max-width: 100%; overflow-x: hidden; }
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* Guard grid/flex tracks */
+header, nav, main, footer, .news-boxes-row, .latest-news-container, .nav-links { min-width: 0; }
+
+/* Media inside cards */
+.latest-news-box img { width: 100%; height: auto; display: block; }

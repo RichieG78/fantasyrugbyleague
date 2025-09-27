@@ -381,3 +381,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .banner { position: relative; }
 .register_button { position: absolute; z-index: 1; }
+
+/* Prevent horizontal scrolling */
+html, body { max-width: 100%; overflow-x: hidden; }
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+/* Grid/flex children shouldn’t force overflow */
+header, nav, main, footer, .banner, .container-row, .latest-news-container,
+.nav-links, table { min-width: 0; min-inline-size: 0; }
+
+/* Tables fit viewport */
+table { width: 100%; table-layout: fixed; }
+th, td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; }
+img { max-width: 100%; height: auto; display: block; }
