@@ -1,0 +1,370 @@
+/* Base layout (match index.css tone and grid) */
+:root {
+  --urc-blue: #003366;
+  --card-bg: #ffffff;
+  --muted: #f4f4f4;
+  --radius: 8px;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--urc-blue);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto 1fr auto;
+  gap: 20px;
+  min-height: 100vh;
+  padding: 0 20px 20px;
+}
+
+/* Header spans all columns */
+header {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: 100%;
+}
+
+/* Header content (match index.css) */
+.header-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--urc-blue);
+  color: #fff;
+  height: 60px;
+  padding: 0 16px;
+}
+
+.URC_logo,
+.URC_Logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.header-container h1 {
+  margin: 0;
+  font-size: 18px;
+  flex: 1;
+  text-align: center;
+  color: #ffffff;
+}
+
+.login {
+  margin-left: auto;
+  background: #fff;
+  color: var(--urc-blue);
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+/* Nav (row 2) */
+nav {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  background: var(--urc-blue);
+  border-radius: 5px;
+}
+
+.nav-links li { list-style: none; }
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Main content (contact card) */
+main {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  width: 100%;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  color: #000;
+  border-radius: var(--radius);
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.contact-card h2 {
+  margin: 0 0 12px;
+  text-align: center;
+  color: var(--urc-blue);
+}
+
+/* Form styling */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  row-gap: 6px;          /* label -> input spacing */
+  column-gap: 16px;      /* keeps two-column layout tidy */
+}
+
+.contact-form .full {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #ffffff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #000;
+  font: inherit;
+  margin-bottom: 16px;
+}
+
+textarea { min-height: 120px; resize: vertical; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #2a7bd4;
+  box-shadow: 0 0 0 3px rgba(42, 123, 212, 0.15);
+}
+
+/* Make submit button blue with white text (place after previous submit styles) */
+button[type="submit"],
+.contact-submit {
+  background: var(--urc-blue);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover,
+.contact-submit:hover {
+  filter: brightness(1.05);
+}
+
+button[type="submit"]:focus-visible,
+.contact-submit:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Footer (match index.css style) */
+footer {
+  grid-column: 1 / -1;
+  grid-row: 4;
+  width: 100%;
+  background: var(--urc-blue);
+  color: #fff;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 8px;
+}
+
+.footer-table td {
+  padding: 6px 4px;
+  text-align: center;
+  color: #fff;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+footer a:hover { text-decoration: underline; }
+
+/* Mobile: iPhone SE and similar — stack nav and footer links, single-column form */
+@media (max-width: 375px) {
+  body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 12px 12px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0;
+    border-radius: 6px;
+  }
+  .nav-links li { width: 100%; border-top: 1px solid rgba(255,255,255,0.15); }
+  .nav-links li:first-child { border-top: 0; }
+  .nav-links a { width: 100%; padding: 12px 16px; }
+
+  .contact-card { padding: 16px; }
+  .contact-form { grid-template-columns: 1fr; }
+
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+  .footer-table td {
+    display: flex;
+    align-items: center;      /* vertical centering */
+    justify-content: center;  /* horizontal centering */
+    min-height: 44px;
+    padding: 8px 0;
+  }
+}
+
+/* Tablet portrait: like mobile, sized up a bit */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 16px 16px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-links a {
+    width: 100%;
+    max-width: 560px;
+    padding: 12px 18px;
+  }
+
+  .contact-card { max-width: 680px; }
+  .contact-form { grid-template-columns: 1fr; gap: 18px; }
+
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+  .footer-table td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 8px 0;
+  }
+}
+
+/* Tablet landscape and Desktop: horizontal nav and footer */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1025px) {
+  body {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px 20px;
+  }
+
+  .nav-links {
+    flex-direction: row;
+    gap: 20px;
+    border-radius: 5px;
+  }
+  .nav-links a { width: auto; padding: 6px 10px; }
+
+  .contact-card { max-width: 900px; }
+
+  .footer-table { 
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .footer-table tbody { display: table-row-group; }
+  .footer-table tr { display: table-row; }
+  .footer-table td {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 8px;
+    min-height: 0;
+  }
+}
+
+/* Make container box titles (labels) blue */
+.contact-card .contact-form label {
+  color: var(--urc-blue);
+}
+
+/* Don’t add extra space after the last element in the form */
+.contact-form > :last-child {
+  margin-bottom: 0;
+}
+
+/* Mobile: keep comfortable spacing when stacked */
+@media (max-width: 375px) {
+  .contact-form { row-gap: 6px; column-gap: 0; }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form input[type="tel"],
+  .contact-form select,
+  .contact-form textarea {
+    margin-bottom: 14px;
+  }
+  .contact-form > :last-child { margin-bottom: 0; }
+}
+
+/* Tablet portrait: slightly larger spacing */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  .contact-form { row-gap: 6px; column-gap: 0; }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form input[type="tel"],
+  .contact-form select,
+  .contact-form textarea {
+    margin-bottom: 16px;
+  }
+  .contact-form > :last-child { margin-bottom: 0; }
+}
