@@ -1,205 +1,135 @@
+/* Simplified, mobile-first, no tablet-portrait/orientation duplicates */
+
+/* Basic reset and overflow guard */
+html, body { max-width: 100%; overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+figure { margin: 0; }
+
+/* Page grid */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #003366;
-    /* URC dark blue */
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: auto auto auto auto auto;
-    gap: 5px;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-header {
-    background-color: #003366;
-    color: white;
-    padding: 10px 10px;
-    grid-column: 1 / -1;
-    grid-row: 1;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.header-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background: #003366;
-    color: #fff;
-    height: 60px;
-    padding: 0 16px;
-    box-sizing: border-box;
-}
-
-.URC_logo {
-    height: 40px;
-    width: auto;
-}
-
-.header-container h1 {
-    margin: 0;
-    font-size: 18px;
-    flex: 1;
-    /* centers title between logo and button */
-    text-align: center;
-}
-
-.login {
-    margin-left: auto;
-    background: #fff;
-    color: #003366;
-    border: none;
-    border-radius: 4px;
-    padding: 8px 14px;
-    cursor: pointer;
-}
-
-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    width: 100%;
-}
-
-nav#primary-navigation { position: relative; z-index: 10; }
-
-.banner { position: relative; }
-
-.register_button { position: absolute; z-index: 1; }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 5px;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    display: inline-flex;
-    /* was inline-block */
-    align-items: center;
-    /* vertical centering */
-    justify-content: center;
-    /* horizontal centering */
-    padding: 6px 10px;
-    border-radius: 4px;
-    text-align: center;
-    /* centers multi-line text */
-}
-
-.nav-links a:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-main {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    flex: 1;
-    width: 100%;
-    background: #003366;
-    border-radius: 8px;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-/* Latest News */
-.latest-news-container {
-  grid-column: 1 / -1;      /* span all columns */
-  grid-row: 3;              /* sits above interviews */
-  display: grid;            /* heading above boxes */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  font-family: Arial, sans-serif;
+  background-color: #003366;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
   grid-auto-rows: auto;
+  gap: 5px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Header */
+header {
+  grid-column: 1 / -1;
+  background: #003366;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-container { display: flex; align-items: center; gap: 16px; height: 60px; padding: 0 16px; }
+.URC_logo { height: 40px; width: auto; }
+.header-container h1 { margin: 0; font-size: 18px; flex: 1; text-align: center; }
+.login { margin-left: auto; background: #fff; color: #003366; border: 0; border-radius: 4px; padding: 8px 14px; cursor: pointer; }
+
+/* Nav (mobile-first: stacked, centered) */
+nav { grid-column: 1 / -1; }
+nav#primary-navigation { position: relative; z-index: 10; }
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0;
+  margin: 0;
+  background: #003366;
+  border-radius: 6px;
+}
+.nav-links li { width: 100%; }
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  display: flex; align-items: center; justify-content: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 4px;
+  text-align: center;
+}
+.nav-links a:hover,
+.nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
+
+/* Sections */
+main { grid-column: 1 / -1; width: 100%; background: #003366; padding: 10px; }
+.latest-news-container,
+.player-interviews-container {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr;  /* stacked on mobile */
   gap: 16px;
   background: #35cee6;
   border-radius: 8px;
   padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 20px;      /* gap below Latest News */
+  color: #001a26;
 }
-
-/* Player Interviews */
-.player-interviews-container {
-  grid-column: 1 / -1;      /* span all columns */
-  grid-row: 4;              /* place after Latest News */
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-auto-rows: auto;
-  gap: 16px;
-  background: #35cee6;      /* match style; change if needed */
-  border-radius: 8px;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-top: 20px;         /* extra separation if desired */
-}
-
-.latest-news-container h3,
-.player-interviews-container h3 {
+.latest-news-container > h2,
+.player-interviews-container > h2,
+.latest-news-container > h3,
+.player-interviews-container > h3 {
   grid-column: 1 / -1;
-  margin: 0 0 6px 0;
-  text-align: left; /* or center to match your preference */
+  margin: 0 0 12px;
+  text-align: center;
+  color: #001a26;
 }
-
+/* Support for inner row wrappers if present */
+.latest-news-container .news-boxes-row,
+.player-interviews-container .news-boxes-row {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;  /* stacked on mobile */
+  gap: 16px;
+}
 .latest-news-container .container-box,
 .player-interviews-container .container-box {
   background: #fff;
   border-radius: 8px;
   padding: 10px;
-  box-sizing: border-box;
+  color: #001a26;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px;
-}
+/* Space between Latest News and Player Interviews sections */
+.latest-news-container { margin-bottom: 24px; }
+/* Fallback: ensure any consecutive sections in main have spacing */
+main > section + section { margin-top: 24px; }
 
+/* Footer (mobile-first: stacked cells centered) */
 footer {
-    grid-column: 1 / -1;
-    /* row 5 */
-    grid-row: 5;
-    width: 100%;
-    background: #003366;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
+  grid-column: 1 / -1;
+  background: #003366;
+  padding: 20px;
+  color: #fff;
 }
-
-.footer-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 10px;
-}
-
+.footer-table,
+.footer-table tbody,
+.footer-table tr,
 .footer-table td {
-    padding: 8px;
-    color: #fff;
-    text-align: center;
+  display: block;
+  width: 100%;
 }
-
-footer a {
-    color: #fff;
-    text-decoration: none;
+.footer-table td {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 0;
+  text-align: center;
 }
+footer a { color: #fff; text-decoration: none; }
+footer a:hover { text-decoration: underline; }
 
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Reset figure spacing and add accessible helper */
-figure { margin: 0; }
-.logo-figure { margin: 0; }
-
-/* A11y utilities and focus styles */
+/* Accessibility helpers */
 .visually-hidden {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -214,182 +144,69 @@ figure { margin: 0; }
   padding: 8px 12px; border-radius: 6px; text-decoration: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2); z-index: 1000;
 }
-.skip-link:focus,
-.skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; }
+.skip-link:focus, .skip-link:focus-visible { top: 8px; outline: 3px solid #ffbf47; outline-offset: 2px; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:not([tabindex="-1"]):focus-visible {
   outline: 3px solid #ffbf47; outline-offset: 2px; border-radius: 4px;
 }
-.nav-links a:hover, .nav-links a:focus-visible { background: rgba(255,255,255,0.15); }
-.nav-links a, button { min-height: 44px; min-width: 44px; }
-@media (prefers-reduced-motion: reduce) { html:focus-within { scroll-behavior: auto; } }
 
-/* Mobile: iPhone SE — stack/center nav and cards, no horizontal scrolling,
-   footer links stacked and centered */
-@media (max-width: 375px) {
-  html, body { overflow-x: hidden; }
-
-  /* Single-column flow to avoid side scroll */
-  body {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    padding: 0 12px 12px;
-    box-sizing: border-box;
-  }
-
-  /* Stack and center navigation */
-  nav { grid-column: 1 / -1; }
+/* ≥769px: tablet landscape + desktop (horizontal rows) */
+@media (min-width: 769px) {
+  /* Nav as a row */
   .nav-links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 6px;
-  }
-  .nav-links li { list-style: none; width: 100%; }
-  .nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 320px;      /* readable width on SE */
-    padding: 12px 16px;
-    text-align: center;
-  }
-
-  /* Stack Latest News and Player Interviews cards vertically and center them */
-  .latest-news-container,
-  .player-interviews-container {
-    grid-template-columns: 1fr;   /* stack boxes */
-    gap: 12px;
-    padding: 16px;
-    justify-items: stretch;
-  }
-  .latest-news-container .container-box,
-  .player-interviews-container .container-box {
-    width: 100%;
-    margin: 0 auto;               /* centered if narrower than full width */
-    text-align: center;
-  }
-
-  /* Footer table: stack links vertically and center them */
-  .footer-table,
-  .footer-table tbody,
-  .footer-table tr,
-  .footer-table td {
-    display: block;
-    width: 100%;
-  }
-  .footer-table td {
-    display: flex;                /* center content vertically and horizontally */
-    align-items: center;
-    justify-content: center;
-    min-height: 44px;             /* touch-friendly */
-    padding: 8px 0;
-    text-align: center;
-  }
-  .footer-table td a {
-    display: inline-block;
-    text-align: center;
-    margin: 0 auto;
-  }
-}
-
-/* Tablet (landscape): show cards in a horizontal row */
-@media (min-width: 768px) and (orientation: landscape) {
-  .latest-news-container,
-  .player-interviews-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-  }
-}
-
-/* Desktop: horizontal row (scales up) */
-@media (min-width: 1025px) {
-  .latest-news-container,
-  .player-interviews-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  main { grid-column: 1 / -1; grid-row: 3; }
-}
-@media (min-width: 1025px) {
-  main { grid-column: 1 / -1; grid-row: 3; }
-}
-
-/* Tablet landscape and Desktop: unstack nav and footer; horizontal layout */
-@media ((min-width: 768px) and (orientation: landscape)), (min-width: 1025px) {
-  html, body { overflow-x: visible; }
-
-  /* Restore multi-column grid if portrait/mobile stacked it */
-  body {
-    grid-template-columns: auto 1fr auto;
-    gap: 5px;
-    padding: 0;
-  }
-
-  /* Horizontal navigation */
-  nav { grid-column: 1 / -1; display: block; }
-  .nav-links {
-    display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
     gap: 20px;
     padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 5px;
   }
-  .nav-links li { list-style: none; width: auto; border: 0; }
-  .nav-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;              /* undo full-width from small screens */
-    max-width: none;
-    padding: 6px 10px;
-    text-align: center;
-  }
+  .nav-links li { width: auto; }
+  .nav-links a { width: auto; padding: 6px 10px; }
 
-  /* Footer table back to horizontal layout */
-  .footer-table { 
-    display: table;
+  /* Card rows horizontal (support both direct children and inner wrappers) */
+  .latest-news-container,
+  .player-interviews-container { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .latest-news-container .news-boxes-row,
+  .player-interviews-container .news-boxes-row { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+  /* Footer table back to row layout */
+  .footer-table {
+    display: table !important;
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;              /* consistent column widths */
     margin-bottom: 10px;
   }
-  .footer-table tbody { display: table-row-group; }
-  .footer-table tr { display: table-row; }
+  .footer-table thead { display: table-header-group; }
+  .footer-table tbody { display: table-row-group !important; }
+  .footer-table tr    { display: table-row !important; }
+
+  /* Reset widths from mobile block */
+  .footer-table thead,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table th,
+  .footer-table td { width: auto !important; }
+
+  .footer-table th,
   .footer-table td {
-    display: table-cell;      /* undo block/flex stacking */
+    display: table-cell !important;
     vertical-align: middle;
     text-align: center;
     padding: 8px;
-    min-height: 0;
-    align-items: initial;     /* neutralize flex props if any */
-    justify-content: initial;
   }
-  .footer-table td a {
-    display: inline-block;
-    margin: 0;
-    text-align: center;
-  }
+
+  /* Latest News (supports direct children or inner row wrapper) */
+  .latest-news-container > .latest-news-box:nth-child(1),
+  .latest-news-container .news-boxes-row > *:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .latest-news-container > .latest-news-box:nth-child(2),
+  .latest-news-container .news-boxes-row > *:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .latest-news-container > .latest-news-box:nth-child(3),
+  .latest-news-container .news-boxes-row > *:nth-child(3) { grid-column: 3; grid-row: 1; }
+
+  /* Player Interviews (same placement) */
+  .player-interviews-container > .container-box:nth-child(1),
+  .player-interviews-container .news-boxes-row > *:nth-child(1) { grid-column: 1; grid-row: 1; }
+  .player-interviews-container > .container-box:nth-child(2),
+  .player-interviews-container .news-boxes-row > *:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .player-interviews-container > .container-box:nth-child(3),
+  .player-interviews-container .news-boxes-row > *:nth-child(3) { grid-column: 3; grid-row: 1; }
 }
-
-/* Prevent horizontal scrolling */
-html, body { max-width: 100%; overflow-x: hidden; }
-*,
-*::before,
-*::after { box-sizing: border-box; }
-
-/* Guard grid/flex tracks */
-header, nav, main, footer, .news-boxes-row, .latest-news-container, .nav-links { min-width: 0; }
-
-/* Media inside cards */
-.latest-news-box img { width: 100%; height: auto; display: block; }

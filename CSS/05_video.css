@@ -173,46 +173,36 @@ html, body { max-width: 100%; overflow-x: hidden; }
 /* Guard nav row */
 nav#primary-navigation { position: relative; z-index: 10; }
 
-/* Mobile: iPhone SE — stack/center nav, fit tables, stack/center footer links */
-@media (max-width: 375px) {
-  html, body { overflow-x: hidden; }
+/* Mobile: 375px–768px — keep nav links stacked and centered */
+@media (min-width: 375px) and (max-width: 768px) {
+  nav#primary-navigation { display: flex; justify-content: center; }
 
-  /* Stack and center navigation */
-  nav { grid-column: 1 / -1; }
   .nav-links {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column;     /* vertical stack */
+    justify-content: center;    /* center within the list */
+    align-items: center;        /* center items horizontally */
     gap: 6px;
     padding: 8px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 6px;
+    margin: 0 auto;             /* center the list in the nav */
+    width: 100%;
+    max-width: 420px;           /* constrain for nicer centering */
+    box-sizing: border-box;
   }
+
   .nav-links li { list-style: none; width: 100%; }
+
   .nav-links a {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    /* center link text */
     width: 100%;
-    max-width: 320px;
-    padding: 10px 16px;
+    max-width: 320px;           /* keeps buttons centered and consistent */
+    margin: 0 auto;             /* center each link block */
+    padding: 12px 16px;
     text-align: center;
   }
 
-  /* Tables fit viewport width without horizontal scrolling */
-  table {
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-  }
-  th, td {
-    white-space: normal;
-    word-break: break-word;
-    padding: 10px;
-  }
-
-  /* Footer table: stack vertically and center content */
   .footer-table,
   .footer-table tbody,
   .footer-table tr,
@@ -221,40 +211,22 @@ nav#primary-navigation { position: relative; z-index: 10; }
     width: 100%;
   }
   .footer-table td {
-    display: flex;               /* vertical + horizontal centering */
-    align-items: center;
-    justify-content: center;
+    display: flex;
+    align-items: center;     /* vertical centering */
+    justify-content: center; /* horizontal centering */
     min-height: 44px;
     padding: 8px 0;
     text-align: center;
   }
   .footer-table td a {
     display: inline-block;
-    text-align: center;
     margin: 0 auto;
+    text-align: center;
   }
 }
 
-/* Desktop */
-@media (min-width: 1025px) {
-  nav { display: block; }
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    margin: 0;
-    background: #003366;
-    border-radius: 5px;
-  }
-  .nav-links li { width: auto; }
-  .nav-links a { width: auto; max-width: none; padding: 6px 10px; }
-}
-
-/* Main spans all columns in row 3 (tablet LANDSCAPE + desktop only) */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+/* Tablet LANDSCAPE (769–1024px): move main to row 3 (avoid overlap with mobile) */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
   main { grid-column: 1 / -1; grid-row: 3; }
 }
 @media (min-width: 1025px) {
