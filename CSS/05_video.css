@@ -105,6 +105,22 @@ body {
       box-sizing: border-box;
     }
 
+        .video-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
         footer {
       grid-column: 1 / -1;
       grid-row: 5;
@@ -139,3 +155,201 @@ body {
     footer a:hover {
       text-decoration: underline;
     }
+
+/* Mobile: iPhone SE and similar (stack nav, fit video, stack footer links) */
+@media (max-width: 375px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Single-column layout to avoid horizontal scroll */
+  body {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 8px 8px;
+  }
+
+  /* Stack and center navigation */
+  nav { grid-column: 1 / -1; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;            /* full width of container */
+    max-width: 320px;       /* readable width */
+    padding: 10px 16px;
+    text-align: center;
+  }
+
+  /* Video fits viewport width without horizontal scrolling */
+  .video-container {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Footer table: stack links vertically and center them */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+  .footer-table td {
+    display: flex;
+    align-items: center;     /* vertical center */
+    justify-content: center; /* horizontal center */
+    min-height: 44px;        /* touch target */
+    padding: 8px 0;
+    text-align: center;
+  }
+  .footer-table td a {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet portrait: stack nav, fit video proportionately, stack footer links */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  html, body { overflow-x: hidden; }
+
+  /* Single column to avoid horizontal scroll */
+  body {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 16px 16px;
+  }
+
+  /* Stack and center navigation */
+  nav { grid-column: 1 / -1; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 520px;   /* wider than mobile for tablet */
+    padding: 12px 18px;
+    text-align: center;
+  }
+
+  /* Video fits tablet portrait proportionately */
+  .video-container {
+    width: 100%;
+    max-width: 800px;   /* scale for tablet portrait */
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Footer table: stack links vertically and center them */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+  .footer-table td {
+    display: flex;
+    align-items: center;     /* vertical center */
+    justify-content: center; /* horizontal center */
+    min-height: 48px;
+    padding: 8px 0;
+    text-align: center;
+  }
+  .footer-table td a {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet landscape and Desktop: unstack nav and footer; horizontal layout */
+@media (min-width: 768px) and (orientation: landscape), (min-width: 1025px) {
+  html, body { overflow-x: visible; }
+
+  /* Restore multi-column grid */
+  body {
+    grid-template-columns: auto 1fr auto;
+    gap: 5px;
+    padding: 0;
+  }
+
+  /* Horizontal navigation */
+  nav { grid-column: 1 / -1; }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 5px;
+  }
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;         /* undo mobile width */
+    max-width: none;
+    padding: 6px 10px;
+    text-align: center;
+  }
+
+  /* Footer table back to horizontal table layout */
+  .footer-table { 
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  .footer-table tbody { display: table-row-group; }
+  .footer-table tr { display: table-row; }
+  .footer-table td {
+    display: table-cell;       /* undo mobile flex/block */
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+    min-height: 0;             /* reset from mobile */
+    align-items: initial;      /* neutralize flex props if any */
+    justify-content: initial;
+    width: auto;
+  }
+  .footer-table td a {
+    display: inline-block;
+    margin: 0;
+    text-align: center;
+  }
+}
+

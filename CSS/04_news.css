@@ -189,13 +189,77 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Mobile (iPhone SE and similar): stack cards vertically */
+/* Mobile: iPhone SE — stack/center nav and cards, no horizontal scrolling,
+   footer links stacked and centered */
 @media (max-width: 375px) {
-  .latest-news-container,
-  .player-interviews-container {
+  html, body { overflow-x: hidden; }
+
+  /* Single-column flow to avoid side scroll */
+  body {
     grid-template-columns: 1fr;
     gap: 12px;
+    padding: 0 12px 12px;
+    box-sizing: border-box;
+  }
+
+  /* Stack and center navigation */
+  nav { grid-column: 1 / -1; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
+  .nav-links li { list-style: none; width: 100%; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;      /* readable width on SE */
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  /* Stack Latest News and Player Interviews cards vertically and center them */
+  .latest-news-container,
+  .player-interviews-container {
+    grid-template-columns: 1fr;   /* stack boxes */
+    gap: 12px;
     padding: 16px;
+    justify-items: stretch;
+  }
+  .latest-news-container .container-box,
+  .player-interviews-container .container-box {
+    width: 100%;
+    margin: 0 auto;               /* centered if narrower than full width */
+    text-align: center;
+  }
+
+  /* Footer table: stack links vertically and center them */
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+  .footer-table td {
+    display: flex;                /* center content vertically and horizontally */
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;             /* touch-friendly */
+    padding: 8px 0;
+    text-align: center;
+  }
+  .footer-table td a {
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
   }
 }
 
@@ -216,16 +280,59 @@ footer a:hover {
   }
 }
 
-/* Tablet (portrait): behave like mobile (stack cards vertically) */
-@media (min-width: 600px) and (max-width: 834px) and (orientation: portrait) {
-  .latest-news-container,
-  .player-interviews-container {
-    grid-template-columns: 1fr;   /* stack boxes */
-    gap: 12px;
-    padding: 16px;
+/* Tablet portrait: same behavior as mobile (stacked), but sized for tablet.
+   No horizontal scrolling; nav stacked/centered; Latest News & Player Interviews
+   stacked and centered; footer links stacked and centered. */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  html, body { overflow-x: hidden; }
+
+  /* Single-column flow */
+  body {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 16px 16px;
+    box-sizing: border-box;
   }
 
-  /* Optional: stack footer links vertically like mobile */
+  /* Stack and center navigation */
+  nav { grid-column: 1 / -1; }
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 6px;
+  }
+  .nav-links li { list-style: none; width: 100%; }
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 560px;         /* wider than mobile for tablet */
+    padding: 12px 18px;
+    text-align: center;
+  }
+
+  /* Latest News & Player Interviews: stacked, centered, tablet-proportioned */
+  .latest-news-container,
+  .player-interviews-container {
+    grid-template-columns: 1fr;  /* stack boxes */
+    gap: 14px;
+    padding: 18px;
+  }
+  .latest-news-container .container-box,
+  .player-interviews-container .container-box {
+    width: 100%;
+    max-width: 680px;            /* proportionate width on tablet portrait */
+    margin: 0 auto;              /* centered */
+    text-align: center;
+  }
+
+  /* Footer table: stack vertically and center content */
   .footer-table,
   .footer-table tbody,
   .footer-table tr,
@@ -233,8 +340,77 @@ footer a:hover {
     display: block;
     width: 100%;
   }
-
   .footer-table td {
+    display: flex;               /* vertical + horizontal centering */
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
     padding: 8px 0;
+    text-align: center;
+  }
+  .footer-table td a {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* Tablet landscape and Desktop: unstack nav and footer; horizontal layout */
+@media ((min-width: 768px) and (orientation: landscape)), (min-width: 1025px) {
+  html, body { overflow-x: visible; }
+
+  /* Restore multi-column grid if portrait/mobile stacked it */
+  body {
+    grid-template-columns: auto 1fr auto;
+    gap: 5px;
+    padding: 0;
+  }
+
+  /* Horizontal navigation */
+  nav { grid-column: 1 / -1; display: block; }
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 0;
+    background: #003366;
+    border-radius: 5px;
+  }
+  .nav-links li { list-style: none; width: auto; border: 0; }
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;              /* undo full-width from small screens */
+    max-width: none;
+    padding: 6px 10px;
+    text-align: center;
+  }
+
+  /* Footer table back to horizontal layout */
+  .footer-table { 
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  .footer-table tbody { display: table-row-group; }
+  .footer-table tr { display: table-row; }
+  .footer-table td {
+    display: table-cell;      /* undo block/flex stacking */
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+    min-height: 0;
+    align-items: initial;     /* neutralize flex props if any */
+    justify-content: initial;
+  }
+  .footer-table td a {
+    display: inline-block;
+    margin: 0;
+    text-align: center;
   }
 }
